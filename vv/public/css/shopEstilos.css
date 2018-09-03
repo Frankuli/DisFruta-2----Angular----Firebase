@@ -1,0 +1,107 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+
+body{
+  color:#504E4D;
+  text-align: center;
+}
+input[type=checkbox], input[type=radio]{
+width: auto!important;
+}
+// checkbox carrito de compras!
+input[type=checkbox] { display:none; } /* to hide the checkbox itself */
+input[type=checkbox] + label:before {
+  font-family: FontAwesome;
+  display: inline-block;
+  color:rgb(205,146,8);
+  font-size: 20PX;
+}
+
+input[type=checkbox] + label:before { content: "\f07a"; } /* unchecked icon */
+input[type=checkbox] + label:before { letter-spacing: 10px; } /* space between checkbox and label */
+
+input[type=checkbox]:checked + label:before { content: "\f00d"; } /* checked icon */
+input[type=checkbox]:checked + label:before { letter-spacing: 5px; } /* allow space for check mark */
+
+.titulotienda{
+  width:60%;
+  margin:s 10px;
+ }
+.tomate{
+  width: 20%;
+}
+th{
+  text-align: center;
+}
+td label{
+  padding: 10px 0;
+  text-align: left;
+}
+.c1{
+  border-right: 2px solid gray;
+}
+.filtros{
+  width: 100%;
+  margin-bottom: 5px;
+}
+.filtros td, th{
+  border-bottom: 2px solid gray;
+}
+
+tr th {
+  padding: 10px;
+}
+.productos{
+  margin-top: 10px;
+  position: relative;
+  display: inline-block;
+}
+.img-productos{
+  width: 80%;
+}
+.productos:hover .img-productos{
+  animation: swing 0.5s forwards;
+}
+.frutas{
+  background-color: white !important;
+}
+.nombre{
+  z-index: 999;
+  position: absolute;
+  top: 0%;
+}
+.precio{
+  z-index: 99;
+  position: absolute;
+  top: 82%;
+  right: 45%;
+}
+.no{
+  padding: 10px;
+  margin: 10px;
+}
+@keyframes swing {
+  25% {
+		-webkit-transform: rotate3d(0, 0, 1, 6deg);
+		transform: rotate3d(0, 0, 1, 6deg);
+	}
+
+	50% {
+		-webkit-transform: rotate3d(0, 0, 1, -4deg);
+		transform: rotate3d(0, 0, 1, -4deg);
+	}
+
+	75% {
+		-webkit-transform: rotate3d(0, 0, 1, 2deg);
+		transform: rotate3d(0, 0, 1, 2deg);
+	}
+
+	100% {
+		-webkit-transform: rotate3d(0, 0, 1, 0deg);
+		transform: rotate3d(0, 0, 1, 0deg);
+	}
+}
+label{
+  text-align: center;
+  display: block;
+}

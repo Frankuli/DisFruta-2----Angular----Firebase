@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html ng-app='includes'>
+  <head>
+    <meta charset="utf-8">
+    <title>Disfruta</title>
+    <ng-include src= " 'plantillas/css.html'  "></ng-include>
+    <link rel="stylesheet" href="css/todo.css">
+    <link rel="stylesheet" href="css/estilosIndex.css">
+    <link rel="stylesheet" href="css/galeria.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js" ></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.slides.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+<body>
+  <div class="contenedora">
+    <div class="col-md-1 "></div>
+    <div class="col-md-10">
+<% include partials/nav.ejs %>
+      <section id="cartel">
+        <div class="main">
+          <div class="slides">
+            <img src="img/sla1.jpg" alt="">
+            <img src="img/sla2.jpg" alt="">
+            <img src="img/sla3.jpg" alt="">
+          </div>
+        </div>
+      </section>
+      <section id="promociones">
+        <div class="titulos">
+          <h1>SALE</h1>
+        </div>
+        <div class="main">
+          <div class="slides">
+            <img src="img/gb.png" alt="">
+            <img src="img/gm.png" alt="">
+            <img src="img/gp.png" alt="">
+            <img src="img/gt.png" alt="">
+          </div>
+        </div>
+      </section>
+      <section id="shop">
+        <div class="titulos">
+          <h1>E-SHOP</h1>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="shop">
+                  <h1>ELEGÍ</h1>
+                    <h1> VIVIR SANO!</h1>
+                </div>
+                <a href="shop"><div class="mensaje">
+                  <h3>INGRESA AL E-SHOP</h3>
+                </div>
+              </div></a>
+              <div class="col-md-6">
+                <div class="tabla">
+                                <table>
+                                    <tr>
+                                        <% for (var i = 0; i <= frut.length -1; i++) { %>
+                                            <td>
+                                                <img class='img-responsive' src="/img/<%= frut[x].frutaimg %>">
+                                                <br>
+                                                <p><%= frut[x].frutanombre.toUpperCase() %></p>
+                                                <% x++ %>
+                                            </td>
+                                            <% if (x % 2 == 0) { %>
+                                    </tr>
+                                    <tr>
+                                        <% }} x = 0 %>
+                                    </tr>
+                                </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4"></div>
+          <div class="col-md-4"></div>
+        </div>
+      </section>
+      <section id="nosotros">
+        <div class="titulos">
+          <h1>NOSOTROS</h1>
+        </div>
+        <div class="header-unit">
+          <div id="video-container">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+              <div class="vive">
+                <h2>VIVE LA EXPERIENCIA...</h2>
+                <div id="texto">
+                  <p>Es una huerta orgánica certificada con una propuesta que potencia todas las virtudes de lo organico.</p>
+                  <p>Cultivamos frutas y verduras orgánicas de estación. Cosechamos tu pedido minutos antes de entregártelo.</p>
+                </div>
+                <h2>...DISFRUTA</h2>
+              </div>
+            </div>
+            <video src="img/Veggie-Stand.mp4" autoplay loop muted poster="img/Veggie-Stand.jpg"></video>
+          </div>
+        </div>
+      </section>
+      <section id="contacto">
+        <div class="titulos">
+          <h1>CONTACTO</h1>
+        </div>
+        <div class="contenedoracontacto">
+          <div class="col-md-6">
+            <div class="formulario">
+              <form  method="post">
+                <div class="col-sm-6">
+                  <input type="text" name="nombre" placeholder="Nombre" />
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" name="nombre" placeholder="Email" />
+                </div>
+                <input type="text" name="nombre" placeholder="Asunto" />
+                <textarea class="form-control" rows="5" placeholder="Mensaje"></textarea>
+                <button type="button" class="btn btn-warning">Enviar</button>
+              </form>
+            </div>
+          </div>
+          <div >
+            <div class='datos'>
+              <strong>Teléfonos:</strong>
+              <p>0358-18485625 / 0358-4684512</p>
+              <strong>Dirección:</strong>
+              <p>Ruta Pcial N°4 y Pedro Funes 499 Santa Eufemia, Córdoba - Argentina</p>
+              <p>indu@idustriatitan.com.ar</p>
+              <p>ventas@industrititan.com.ar</p>
+              <p>rrhh@industriatitan.com.ar</p>
+            </div>
+          </div>
+          <div id class="google-maps">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d388.58361865137033!2d-64.3497292031547!3d-33.124222703712114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x749222ef06ebc9a8!2sBalcarce!5e0!3m2!1ses!2ses!4v1504224848399" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+          </div>
+          <div id="limpiar"></div>
+        </div>
+      </section>
+      <div ng-include src=" 'plantillas/pie.html' " > </div>
+    </div>
+  </div>
+
+
+</body>
+</html>

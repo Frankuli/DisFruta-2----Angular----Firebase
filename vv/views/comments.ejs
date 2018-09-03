@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app='includes'>
+  <head>
+    <meta charset="utf-8">
+    <title>COMENTARIOS</title>
+    <ng-include src= " 'plantillas/css.html'  "></ng-include>
+    <link rel="stylesheet" href="css/todo.css">
+    <link rel="stylesheet" href="css/pedidosEstilos.css">
+  </head>
+  <body>
+      <div class="col-md-1 "></div>
+      <div class="col-md-10">
+          <div class="titu">
+            <h1> COMENTARIOS</h1>
+          </div>
+          <div class="table-responsive">
+            <div class="table">
+              <table ng-controller="ctrl">
+                <tr  class="bg-warning" >
+                  <th>FECHA</th>
+                  <th>NOMBRE</th>
+                  <th>MAIL</th>
+                  <th>ASUNTO</th>
+                  <th>COMENTARIO</th>
+                </tr>
+                <% for (var i = comentario.length - 1; i >= 0; i--) { %>
+                <tr>
+                  <td><%= comentario[i].fech_come.toLocaleDateString() %></td>
+                  <td><%= comentario[i].nomb_come %></td>
+                  <td><%= comentario[i].mail_come %></td>
+                  <td><%= comentario[i].asun_come %></td>
+                  <td><a href="/detalleComentario?id=<%= comentario[i].id_come %>" target='_blank'"><%= comentario[i].mens_come.slice(0,15)+ " ..." %></a></td>
+
+                </tr>
+                <% } %>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js" > </script>
+        <script src="https://code.angularjs.org/1.6.5/angular-route.min.js"></script>
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+        <script src="js/app.js"></script>
+        <script src="js/shop.js"></script>
+    </body>
+</html>

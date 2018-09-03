@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>FACTURA</title>
+    <link rel="icon" type="image/png" href="img/0.png">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="css/todo.css">
+    <link rel="stylesheet" href="css/facturaEstilos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+    <script src="js/factura.js"></script>
+  </head>
+  <body>
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <div class="contenedora">
+        <div>
+          <table class="table table-condense">
+            <tr class="bg-warning">
+              <th><span>TOTAL A PAGAR: </span><strong>[TOTAL]</strong></th>
+              <th><span>FECHA DE VENCIMIENTO: </span><strong>[FECHA]</strong></th>
+              <th><span> NUMERO DE CLIENTE: </span><strong>{ID DEL CLIENTE}</strong></th>
+            </tr>
+          </table>
+        </div>
+        <img class="cartel" src="img/LOGO.jpg">
+        <div class="table-responsive">
+          <div>
+            <div>
+              <table class="table table-condense">
+                <thead>
+                  <tr class="bg-warning">
+                    <th><span class="glyphicon glyphicon-bookmark"></span>  Nº de Cliente</th>
+                    <th><span class="glyphicon glyphicon-user"></span>  Cliente</th>
+                    <th><span class="glyphicon glyphicon-map-marker"></span>   Domicilio</th>
+                    <th><span class="glyphicon glyphicon-phone-alt"></span>   Telefono</th>
+                    <th><span class="glyphicon glyphicon-send"></span>   Correo Electrónico</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{ID CLIENTE}</td>
+                    <td>{NOMBRE CLIENTE}</td>
+                    <td>{DIRECCION DEL PEDIDO}</td>
+                    <td>{TELEFONO}</td>
+                    <td>{CORREO}</td>
+                  </tr>
+                </tbody>
+                <thead>
+                  <tr class="bg-warning">
+                    <th>Nº Factura</th>
+                    <th>Fecha de compra</th>
+                    <th>Forma de pago</th>
+                    <th>CUIT</th>
+                    <th>I.V.A</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{ID FACTURA}</td>
+                    <td>{FECHA EMISION FACTURA}</td>
+                    <td>{FORMA DE PAGO}</td>
+                    <td>3085455126</td>
+                    <td>{Consumidor Final}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="titu">
+              <h1>DETALLE DE COMPRA </h1>
+            </div>
+            <table>
+              <tr class="bg-warning">
+                <th>Detalle</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Subtotal</th>
+              </tr>
+              <tr>
+                <td>xxx</td>
+                <td>xxx</td>
+                <td>xxx</td>
+                <td>xxx</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <th>SUBTOTAL</th>
+                <td>{SUBTOTAL}</td>
+              </tr>
+              <tr>
+                <th></th>
+                <td></td>
+                <th>FORMA DE ENVIO</th>
+                <td>{COSTO}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <th></th>
+                <th>FORMA DE PAGO</th>
+                <td>{INTERES O DESCUENTO}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <th>TOTAL A PAGAR</th>
+                <td>{TOTAL A PAGAR}</td>
+              </tr>
+            </table>
+            <div class="titu">
+              <h1>CONTACTO </h1>
+            </div>
+            <table>
+              <tr class="bg-warning">
+                <th>Teléfonos</th>
+                <th>Dirección</th>
+                <th>Correo Electrónico</th>
+                <th>IVA</th>
+              </tr>
+              <tr>
+                <td>0358-18485625</td>
+                <td>Santa Eufemia, Córdoba</td>
+                <td>disfruta@gmail.com</td>
+                <td>Responsable Inscripto</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <button type="button" id='imprimir' class="botonimp btn btn-warning" onclick="imprimir()">IMPRIMIR</button>
+    </div>
+  </body>
+</html>

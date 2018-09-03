@@ -1,0 +1,67 @@
+  <!DOCTYPE html>
+<html ng-app='includes'>
+  <head>
+    <meta charset="utf-8">
+    <title>SHOP</title>
+    <link rel="icon" type="image/png" href="img/0.png">
+    <ng-include src= " 'plantillas/css.html'  "></ng-include>
+    <link rel="stylesheet" href="css/todo.css">
+    <link rel="stylesheet" href="css/shopEstilos.css">
+  </head>
+  <body onload="checkCarrito(<%= ses.userId %>)">
+    <div class="col-md-12">
+<% include partials/nav.ejs %>
+      <img class="titulotienda" src="img/titulotienda.jpg" alt="">
+      <img class="tomate" src="img/3.png" alt="">
+      <div class="titulos">
+        <h1>SHOP </h1>
+      </div>
+    </div>
+    <div class="col-md-2 c1">
+      <table class="filtros">
+        <tr>
+          <form class="navbar-form navbar-left" method="get" action="/shop?buscar=buscar&tipo=tipo&promo=promo&filtro=filtro" id="busqueda">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Buscar" ng-model="buscar">
+            </div>
+          </tr>
+          <tr><th>FILTROS</th></tr>
+          <tr><td><label class=""><input type="radio" value="0" name="tipo"> FRUTAS</label></td></tr>
+          <tr><td><label class=""><input type="radio" value="1" name="tipo"> VEGETALES</label></td></tr>
+          <tr><td><label class=""><input type="checkbox" value="1" name="promo"> PROMOCIO</label></td></tr>
+          <tr><th>ORDEN POR</th></tr>
+          <tr><td><label class=""><input type="checkbox" value="" name="precio"> PRECIO</label></td></tr>
+        </form>
+      </table>
+    </div>
+    <div class="col-md-10" ng-controller="obtenerItems">
+      <div ng-repeat="x in items | filter: buscar " class="productos accion">
+        <div class="productos accion" name="item{{x.id}}">
+          <img ng-if="x.frutastock <=0" style="filter: grayscale(100%);" class="img-productos" src="/img/{{x.frutaimg}}">
+          <img ng-if="x.frutastock >0" class="img-productos" src="/img/{{x.frutaimg}}">
+          <label class="nombre" for="">{{x.frutanombre.toUpperCase()}}</label>
+          <label  ng-if="x.frutastock" class="precio" for="">$ {{ x.frutaprecio}}</label>
+          <p name="frutaId" hidden="true">{{ x.id}}</p>
+
+          <input ng-if="x.frutastock >0" type="checkbox" name="button{{x.id}}" id="{{x.id}}" hidden="true" onclick="sendItems(this.name,this.checked,<%= ses.userId %>)" />
+          <label for="{{x.id}}"></label>
+          <p class="no" ng-if="x.frutastock <=0"><strong class="alert alert-danger"> No hay stock</strong></p>
+        </div>
+      </div>
+      <form  name="subir" action="/resumen">
+        <button type="submit">COMPRAR</button>
+      </form>
+    </div>
+    <div class="col-md-12">
+      <div ng-include src=" 'plantillas/pie.html' "></div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js" > </script>
+    <script src="https://code.angularjs.org/1.6.5/angular-route.min.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/shop.js"></script>
+       <script>
+       shopApp.value("userId", "<%= ses.userId %>");</script>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+body{
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  line-height: 1.6;
+  letter-spacing:1px;
+  background: url("../img/fondotodo.jpg") no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+img{
+  height: auto;
+  width: 100%;
+}
+li{
+  display: inline-block;
+}
+h1{
+  font-size: 3.5vw;
+  font-family: 'Abril Fatface', cursive;
+}
+h3,h2{
+  font-size: 2.5vw;
+  font-family: 'Abril Fatface', cursive;
+}
+
+.titulos{
+    color: white !important;
+  	background-image: url("../img/cabecera.jpg");
+    background-size: cover;
+    padding-top: 4px;
+    height:100%;
+    font-family: 'Abril Fatface', cursive;
+}
+.titu{
+  padding: 3px;
+  margin: 3px;
+    font-size: 3vw;
+    font-family: 'Abril Fatface', cursive;
+    color: #cd9208;
+    border-top: 3px solid #cd9208;
+    border-bottom: 3px solid #cd9208;
+}
+
+input{
+  font-size: 100%;
+  padding: 5px 10px;
+  margin: 15px 0;
+  background: none;
+  background-image: none;
+  border: 1px solid #a0b3b0;
+  color: #000;
+  border-radius: 0;
+
+  width: 100%;
+}
+input:focus{
+  outline: 0;
+  border-color: rgb(205,146,8);
+}
+button {
+  border: 0;
+  outline: none;
+  border-radius: 0;
+  padding: 15px;
+  margin:10px;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  background: rgb(205,146,8);
+  color: #ffffff;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-appearance: none;
+}
+button:hover, .button:focus {
+  background: #805d01;
+}

@@ -1,0 +1,19 @@
+body{
+  color: black;
+}
+.comen{
+  text-align: left;
+  padding: 20px;
+}
+.text{
+  border: 1px solid #cd9208;
+}
+.text p{
+  text-align: center;
+  padding: 20px;
+}
+h4{
+  color: #cd9208;
+  font-family: 'Abril Fatface', cursive;
+  display: inline-block;
+}

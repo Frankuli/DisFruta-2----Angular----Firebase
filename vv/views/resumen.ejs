@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html ng-app='includes'>
+  <head>
+    <meta charset="utf-8">
+    <title>RESUMEN</title>
+    <ng-include src= " 'plantillas/css.html'  "></ng-include>
+    <link rel="stylesheet" href="css/todo.css">
+    <link rel="stylesheet" href="css/estilosResumen.css">
+  </head>
+  <body>
+    <div ng-controller="ctrl" class="row">
+      <div class="col-md-5">
+        <div class="ti">
+          <h1>GRACIAS</h1>
+          <h2>POR TU</h2>
+          <h1>COMPRA!</h1>
+        </div>
+        <img class="tomate" src="img/3.png" alt="">
+        <a href="/shop"><button class="btn btn-warning"><span class="glyphicon glyphicon-arrow-left"></span> VOLVER AL SHOP</button></a>
+
+      </div>
+      <div class="col-md-7">
+        <div class="col-md-11 resumen">
+          <div class="titu">
+            <h1> TU RESUMEN</h1>
+          </div>
+          <form method="post" action="/checkout">
+          <div class="table-responsive">
+            <div class="table">
+              <table>
+                <tr  class="bg-warning" >
+                  <th></th>
+                  <th>PRODUCTO</th>
+                  <th>CANTIDAD</th>
+                  <th>PRECIO</th>
+                  <th>SUBTOTAL</th>
+                </tr>
+                <tr ng-repeat="item in factura">
+                  <td><a href="#" ng-click="eliminarItem(item.id)"><span class="btn btn-warning glyphicon glyphicon-trash"></span> </a></td>
+                  <td>{{item.nombre}}</td>
+                  <td>
+                    <input type="number" ng-model="item.cantidad" ng-init="item.cantidad=0"
+                    name="cant">
+                    <input type="hidden" name="id" value="{{item.id}}">
+                </td>
+                  <td>{{item.precio}}</td>
+                  <td>{{item.cantidad*item.precio}}</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <th>ENVIO</th>
+                  <td>
+                    <input type="radio" name='envio' ng-model="envi"  value="1"><strong> DOMICILIO </strong><br>
+                    <input type="radio" name='envio' ng-model="envi" value="2"><strong> LOCAL</strong><br>
+                    <input type="radio" name='envio' ng-model="envi" value="3"><strong> OTRO</strong><br>
+                  </td>
+                  <td>
+                    <div ng-switch="envi">
+                      <div ng-switch-when="1">
+                        <strong>MAS $50 DE ENVIO</strong>
+                      </div>
+                      <div ng-switch-when="2">
+                        <strong>GRACIAS POR SU COMPRA</strong>
+                      </div>
+                      <div ng-switch-when="3">
+                        <strong>DONDE?</strong>
+                        <input type="text" name="" placeholder="DIRECCION...">
+                        <strong>MAS $50 DE ENVIO</strong>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <th>FORMA DE PAGO</th>
+                  <td>
+                    <input type="radio" name='pago' ng-model="pago" value="1"><strong> CONTADO</strong><br>
+                    <input type="radio" name='pago' ng-model="pago" value="2"><strong> CREDITO</strong><br>
+                    <input type="radio" name='pago' ng-model="pago" value="3"><strong> DÉBITO </strong><br>
+                  </td>
+                  <td class="date">
+                    <div ng-switch="pago">
+                      <div ng-switch-when="1">
+                        <strong>GRACIAS POR SU COMPRA</strong>
+                      </div>
+                      <div ng-switch-when="2">
+                        <strong>TARJETA </strong>
+                        <select>
+                          <option value="">VISA</option>
+                          <option value="">MARTERCARD</option>
+                          <option value="">CORDOBESA</option>
+                          <option value="">AMERICAN EXPRESS</option>
+                          <option value="">NARANJA</option>
+                          <option value="">NATIVA</option>
+                          <option value="">TARJETA SHOPPING</option>
+                          <option value="">CABAL</option>
+                          <option value="">CENCOSUD</option>
+                          <option value="">DINERS</option>
+                          <option value="">ARGENCARD</option>
+                          <option value="">CORDIAL</option>
+                          <option value="">CMR</option>
+                        </select>
+                        <div ng-include src=" 'plantillas/tarjeta.html'  " ></div>
+                        <strong>DESCUENTO 15%</strong>
+                      </div>
+                      <div ng-switch-when="3">
+                        <strong>TARJETA </strong>
+                        <select>
+                          <option value="">MAESTRO</option>
+                          <option value="">MASTERCARD DÉBITO</option>
+                          <option value="">CABAL DÉBITO</option>
+                          <option value="">VISA DÉBITO</option>
+                        </select>
+                        <div ng-include src=" 'plantillas/tarjeta.html'  " ></div>
+                        <strong>INTERES 5%</strong>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><strong>SUBTOTAL</strong></td>
+                  <td>{{subTotal()}}</td>
+                </tr>
+                <tr class="bg-warning">
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <div class="titu">
+                      <h3>TOTAL</h3>
+                    </div>
+                  </td>
+                  <td>{{Total()}}</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <button type="submit" ng-disabled="!(envi&&pago)" class="btn btn-warning">COMPRAR</button>
+        </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/resumen.js"></script>
+    <script src="js/shop.js"></script>
+    <script>app.value("userId", "<%= ses.userId %>")</script>
+  </body>
+</html>
