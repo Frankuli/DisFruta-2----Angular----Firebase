@@ -6,11 +6,12 @@ import { FormComponent } from './form/form.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SliderComponent } from './slider/slider.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [ContactComponent, FooterComponent, FormComponent, NavbarComponent, SliderComponent, SpinnerComponent]
+  declarations: [ContactComponent, FooterComponent, FormComponent, NavbarComponent, SliderComponent, SpinnerComponent, ModalComponent]
 })
 export class SharedModule { }

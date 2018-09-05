@@ -1,3 +1,4 @@
+import { ModalComponent } from './shared/modal/modal.component';
 import { FormComponent } from './shared/form/form.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SliderComponent } from './shared/slider/slider.component';
@@ -14,7 +15,8 @@ import { AppComponent } from './app.component';
     FooterComponent,
     SliderComponent,
     NavbarComponent,
-    FormComponent
+    FormComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule

@@ -4,7 +4,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: url("../img/fondotodo.jpg") no-repeat center fixed;
+    background: url("/assets/img/fondotodo.jpg") no-repeat center fixed;
    -webkit-background-size: cover;
    -moz-background-size: cover;
    -o-background-size: cover;

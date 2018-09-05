@@ -1,0 +1,31 @@
+<div class="form">
+  <ul class="tab-group">
+    <li class="tab active"><a href="#log">INICIAR SESIÓN</a></li>
+    <li class="tab"><a href="#reg">REGISTRARSE</a></li>
+  </ul>
+  <div class="tab-content">
+    <div id="log">
+      <img src="img/LOGO.jpg" alt="">
+      <form action="/sesion" method="post">
+          <p class="alert alert-danger">
+          </p>
+            <input type="text" name="email" value="" placeholder="Email">
+            <input type="password" name="password" value="" placeholder="Contraseña">
+            <button type="submit" name="button">INGRESAR</button>
+      </form>
+    </div>
+    <div id="reg">
+      <form action="/sesion" method="post">
+        <input type="text" name="name" value="" placeholder="Nombre">
+        <input type="text" name="fullName" value="" placeholder="Apellido">
+        <input type="text" name="regEmail" value="" placeholder="Email">
+        <input type="text" name="direccion" value="" placeholder="Dirección">
+        <input type="text" name="telefono" value="" placeholder="Telefono">
+        <input type="password" name="password" value="" placeholder="Contraseña">
+        <input type="password" name="passwordConfirm" value="" placeholder="Confirme Contraseña">
+        <button type="submit">REGISTRARSE</button>
+      </form>
+    </div>
+  </div>
+</div>
+<script src="js/sesion.js"></script>
