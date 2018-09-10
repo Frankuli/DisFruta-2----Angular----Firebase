@@ -7,19 +7,66 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">PRODUCTOS<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#shop">PRODUCTOS<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">PROMOCIONES</a>
+        <a class="nav-link" href="#promo">PROMOCIONES</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">LA HUERTA</a>
+        <a class="nav-link" href="#nosotros">NOSOTROS</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">CONTACTO</a>
+        <a class="nav-link" href="#contacto">CONTACTO</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">INICIAR SESION</a>
+        <!-- Button trigger modal -->
+        <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+          INICIAR SESION
+        </a>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <img src="/assets/img/LOGO.jpg" alt="">
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                  <li class="nav-item">
+                    <a class="btn active" id="pills-log-tab" data-toggle="pill" href="#pills-log" role="tab" aria-controls="pills-log" aria-selected="true">INICIAR SECION</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="btn" id="pills-reg-tab" data-toggle="pill" href="#pills-reg" role="tab" aria-controls="pills-reg" aria-selected="false">REGUISTARSE</a>
+                  </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                  <div class="tab-pane fade show active" id="pills-log" role="tabpanel" aria-labelledby="pills-log-tab">
+                    <div class="log">
+                      <form action="/sesion" method="post">
+                        <p class="alert alert-danger">
+                        </p>
+                        <input type="text" name="email" value="" placeholder="Email">
+                        <input type="password" name="password" value="" placeholder="Contraseña">
+                        <button type="submit" class="btn"name="button">INGRESAR</button>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="pills-reg" role="tabpanel" aria-labelledby="pills-reg-tab">
+                    <div id="reg">
+                      <form action="/sesion" method="post">
+                        <input type="text" name="name" value="" placeholder="Nombre">
+                        <input type="text" name="regEmail" value="" placeholder="Email">
+                        <input type="password" name="password" value="" placeholder="Contraseña">
+                        <input type="password" name="passwordConfirm" value="" placeholder="Confirme Contraseña">
+                        <button type="submit" class="btn ">REGISTRARSE</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true"
