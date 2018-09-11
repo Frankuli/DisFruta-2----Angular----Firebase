@@ -1,0 +1,12 @@
+label{
+  padding: 10px 0;
+  text-align: left;
+}
+.c1{
+  border-right: 2px solid gray;
+}
+.filtros{
+  width: 50%;
+  border-bottom: 2px solid gray;
+}
+

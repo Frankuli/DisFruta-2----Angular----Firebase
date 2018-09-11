@@ -1,0 +1,36 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+.titulos{
+    color: white !important;
+  	background-image: url("/assets/img/cabecera.jpg");
+    background-size: cover;
+    padding-top: 4px;
+    height:100%;
+    font-family: 'Abril Fatface', cursive;
+    text-align: center;
+}
+.titulotienda{
+  width:80%;
+  margin:s 10px;
+ }
+.tomate{
+  width: 20%;
+}
+
+input[type=checkbox], input[type=radio]{
+width: auto!important;
+}
+
+input[type=checkbox] { display:none; } /* to hide the checkbox itself */
+input[type=checkbox] + label:before {
+  font-family: FontAwesome;
+  display: inline-block;
+  color:rgb(205,146,8);
+  font-size: 20PX;
+}
+
+input[type=checkbox] + label:before { content: "\f07a"; } /* unchecked icon */
+input[type=checkbox] + label:before { letter-spacing: 10px; } /* space between checkbox and label */
+
+input[type=checkbox]:checked + label:before { content: "\f00d"; } /* checked icon */
+input[type=checkbox]:checked + label:before { letter-spacing: 5px; } /* allow space for check mark */

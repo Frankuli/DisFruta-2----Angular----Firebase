@@ -1,0 +1,50 @@
+/* {
+  background: url("/assets/img/fondo.jpg");
+} */
+
+.ti{
+  display: inline-block;
+  color: white!important;
+  font-family: 'Abril Fatface', cursive;
+  padding-top:  10px;
+  margin: 10px;
+  border-top: white solid 3px;
+  border-bottom: white solid 3px;
+}
+
+h1,h2,h3{
+  text-align: center;
+  padding: 3px;
+  margin: 3px;
+}
+.tomate{
+  float: right;
+  display: inline-block;
+  width: 54%;
+}
+.resumen{
+  background-color: #fff !important;
+  margin-top: 10px;
+}
+
+.date strong{
+  padding-top: 5px;
+  margin-top:  15px;
+  display: block !important;
+
+}
+input[type=checkbox], input[type=radio]{
+width: auto!important;
+}
+button{
+  margin: 10px;
+  padding: 10px;
+}
+table {
+   width: 100%;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 2px solid black;
+}

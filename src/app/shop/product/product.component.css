@@ -1,0 +1,54 @@
+.productos{
+  margin-top: 10px;
+  position: relative;
+  display: inline-block;
+}
+.img-productos{
+  width: 80%;
+}
+.productos:hover .img-productos{
+  animation: swing 0.5s forwards;
+}
+.frutas{
+  background-color: white !important;
+}
+.nombre{
+  z-index: 999;
+  position: absolute;
+  top: 0%;
+}
+.precio{
+  z-index: 99;
+  position: absolute;
+  top: 82%;
+  right: 45%;
+}
+.no{
+  padding: 10px;
+  margin: 10px;
+}
+@keyframes swing {
+  25% {
+		-webkit-transform: rotate3d(0, 0, 1, 6deg);
+		transform: rotate3d(0, 0, 1, 6deg);
+	}
+
+	50% {
+		-webkit-transform: rotate3d(0, 0, 1, -4deg);
+		transform: rotate3d(0, 0, 1, -4deg);
+	}
+
+	75% {
+		-webkit-transform: rotate3d(0, 0, 1, 2deg);
+		transform: rotate3d(0, 0, 1, 2deg);
+	}
+
+	100% {
+		-webkit-transform: rotate3d(0, 0, 1, 0deg);
+		transform: rotate3d(0, 0, 1, 0deg);
+	}
+}
+label{
+  text-align: center;
+  display: block;
+}

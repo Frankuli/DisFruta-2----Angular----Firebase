@@ -1,0 +1,124 @@
+<div class="ti">
+  <h1>GRACIAS</h1>
+  <h2>POR TU</h2>
+  <h1>COMPRA!</h1>
+</div>
+<img class="tomate" src="/assets/img/3.png" alt="">
+<button class="btn btn-warning" routerLink="/shop"> VOLVER AL SHOP</button>
+<div class="titu">
+  <h1> TU RESUMEN</h1>
+</div>
+<form method="post" action="/checkout">
+  <div class="table-responsive">
+    <table class="table">
+      <tr class="table-warning">
+        <th scope="col"></th>
+        <th scope="col">PRODUCTO</th>
+        <th scope="col">CANTIDAD</th>
+        <th scope="col">PRECIO</th>
+        <th scope="col">SUBTOTAL</th>
+      </tr>
+      <tr>
+        <td scope="row"></td>
+        <td></td>
+        <td>
+          <input type="number" name="cant">
+          <input type="hidden" name="id" value="">
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <th>ENVIO</th>
+        <td>
+          <input type="radio" name='envio' value="1"><strong> DOMICILIO </strong><br>
+          <input type="radio" name='envio' value="2"><strong> LOCAL</strong><br>
+          <input type="radio" name='envio' value="3"><strong> OTRO</strong><br>
+        </td>
+        <td>
+          <div ng-switch="envi">
+            <div ng-switch-when="1">
+              <strong>MAS $50 DE ENVIO</strong>
+            </div>
+            <div ng-switch-when="2">
+              <strong>GRACIAS POR SU COMPRA</strong>
+            </div>
+            <div ng-switch-when="3">
+              <strong>DONDE?</strong>
+              <input type="text" name="" placeholder="DIRECCION...">
+              <strong>MAS $50 DE ENVIO</strong>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <th>FORMA DE PAGO</th>
+        <td>
+          <input type="radio" name='pago' value="1"><strong> CONTADO</strong><br>
+          <input type="radio" name='pago' value="2"><strong> CREDITO</strong><br>
+          <input type="radio" name='pago' value="3"><strong> DÉBITO </strong><br>
+        </td>
+        <td class="date">
+          <div>
+            <div>
+              <strong>GRACIAS POR SU COMPRA</strong>
+            </div>
+            <div>
+              <strong>TARJETA </strong>
+              <select>
+                <option value="">VISA</option>
+                <option value="">MARTERCARD</option>
+                <option value="">CORDOBESA</option>
+                <option value="">AMERICAN EXPRESS</option>
+                <option value="">NARANJA</option>
+                <option value="">NATIVA</option>
+                <option value="">TARJETA SHOPPING</option>
+                <option value="">CABAL</option>
+                <option value="">CENCOSUD</option>
+                <option value="">DINERS</option>
+                <option value="">ARGENCARD</option>
+                <option value="">CORDIAL</option>
+                <option value="">CMR</option>
+              </select>
+              <strong>DESCUENTO 15%</strong>
+            </div>
+            <div>
+              <strong>TARJETA </strong>
+              <select>
+                <option value="">MAESTRO</option>
+                <option value="">MASTERCARD DÉBITO</option>
+                <option value="">CABAL DÉBITO</option>
+                <option value="">VISA DÉBITO</option>
+              </select>
+              <strong>INTERES 5%</strong>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><strong>SUBTOTAL</strong></td>
+        <td></td>
+      </tr>
+      <tr class="table-warning">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+          <div class="titu">
+            <h3>TOTAL</h3>
+          </div>
+        </td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+  <button type="submit"  class="btn btn-warning">COMPRAR</button>
+</form>
+
