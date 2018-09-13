@@ -14,7 +14,7 @@ export class SliderComponent implements OnInit {
     this.slidersInfo = [
       {
         "section": "home",
-        "category_id": "promo.id",
+        "category_id": "promo",
         "images": [
           {
             "url": "https://picsum.photos/200/354",
@@ -35,7 +35,7 @@ export class SliderComponent implements OnInit {
       },
       {
         "section": "Noticias Home",
-        "category_id": "news.id",
+        "category_id": "news",
         "images": [
           {
             "url": "https://picsum.photos/200/378",
@@ -58,7 +58,8 @@ export class SliderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.slidersInfo = this.slidersInfo.find(slider => slider.caregory_id == this.category);
+    this.sliders = this.slidersInfo.find(slider => slider.category_id == 'promo');
+    console.log(this.sliders);
   }
 
 }

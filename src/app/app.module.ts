@@ -12,7 +12,8 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './home/index/index.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
-
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot([
       {path: '', component: IndexComponent},
       {path: 'shop', component: ShopComponent },
