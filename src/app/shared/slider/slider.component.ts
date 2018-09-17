@@ -17,20 +17,25 @@ export class SliderComponent implements OnInit {
         "category_id": "promo",
         "images": [
           {
-            "url": "https://picsum.photos/200/354",
+            "url": "/assets/img/gm.png",
             "caption": "Disfruta el 20% off en disfruta solo bananas",
             "action": "/promos/bananas20off"
           },
           {
-            "url": "https://picsum.photos/200/300",
+            "url": "/assets/img/gp.png",
             "caption": "Disfruta el 30% off en disfruta solo manzanas",
             "action": "/promos/bananas40off"
           },
           {
-            "url": "https://picsum.photos/200/305",
+            "url": "/assets/img/gt.png",
             "caption": "Disfruta el 40% off en disfruta solo bananas",
             "action": "/promos/bananas40off"
-          }
+          },
+          {
+            "url": "/assets/img/gb.png",
+            "caption": "Disfruta el 40% off en disfruta solo bananas",
+            "action": "/promos/bananas40off"
+          },
         ]
       },
       {
@@ -38,17 +43,17 @@ export class SliderComponent implements OnInit {
         "category_id": "news",
         "images": [
           {
-            "url": "https://picsum.photos/200/378",
+            "url": "/assets/img/nw.jpg",
             "caption": "Disfruta el 20% off en disfruta solo bananas",
             "action": "/promos/bananas20off"
           },
           {
-            "url": "https://picsum.photos/200/309",
+            "url": "/assets/img/sla2.jpg",
             "caption": "Disfruta el 30% off en disfruta solo manzanas",
             "action": "/promos/bananas40off"
           },
           {
-            "url": "https://picsum.photos/200/320",
+            "url": "/assets/img/sla3.jpg",
             "caption": "Disfruta el 40% off en disfruta solo bananas",
             "action": "/promos/bananas40off"
           }
@@ -58,7 +63,7 @@ export class SliderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.sliders = this.slidersInfo.find(slider => slider.category_id == 'promo');
+    this.sliders = this.slidersInfo.find(slider => slider.category_id == this.category);
     console.log(this.sliders);
   }
 

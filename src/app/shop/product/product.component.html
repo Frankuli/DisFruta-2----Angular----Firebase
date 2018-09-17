@@ -1,12 +1,16 @@
-<div class="productos accion" name="">
-  <img  style="filter: grayscale(100%);" class="img-productos" src="/assets/img2/cebolla.jpg">
-  <img  class="img-productos" src="/assets/img2/cebolla.jpg">
-  <label class="nombre" for="">CEBOLLA</label>
-  <label class="precio" for="">$ 555</label>
-  <p  hidden="true"></p>
+<div *ngFor="let product of producs" class="productos accion" name="">
 
-  <input  type="" name="" id="" hidden="true" onclick="" />
-  <label for=""></label>
-  <p class="no" ><strong class="alert alert-danger"> No hay stock</strong></p>
+  <label class="" for="">{{product.name}}</label>
+
+  <div *ngIf="product.stock <= 0">
+    <img style="filter: grayscale(100%);" class="img-productos" src={{product.image}}>
+    <p class="no"><strong class="alert alert-danger"> No hay stock</strong></p>
+  </div>
+  <div>
+    <img *ngIf="product.stock > 0" class="img-productos" src={{product.image}}>
+    <input  type="" name="" id="" hidden="true" onclick="" />
+    <label class="" for="">$ {{product.price}}</label>
+  </div>
+
 </div>
 
