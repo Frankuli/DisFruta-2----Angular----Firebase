@@ -12,7 +12,11 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './home/index/index.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
+
+
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -27,11 +31,12 @@ import { environment } from '../environments/environment';
     ProfileComponent,
     FilterComponent,
     ProductComponent,
-    SummaryComponent
+    SummaryComponent 
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment.firebase, 'disfruta'),
+    AngularFireAuthModule,
     RouterModule.forRoot([
       {path: '', component: IndexComponent},
       {path: 'shop', component: ShopComponent },

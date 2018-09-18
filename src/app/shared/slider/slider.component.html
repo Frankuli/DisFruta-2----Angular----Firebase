@@ -1,20 +1,19 @@
-<div class="fullscreen">
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" *ngFor="let x of sliders.images; let i = index" [attr.data-slide-to]="i" [ngClass]="(i == 0) ? 'active' : '' "></li>
-    </ol>
-    <div class="carousel-inner">
-      <div *ngFor="let x of sliders.images; let img = index" class="carousel-item" [ngClass]="(img == 0) ? 'active' : '' ">
-        <img class="d-block w-100" src={{x.url}} alt="{{x.caption}}" width="100%" height="auto">
-      </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-
+<div [id]="'carouselExampleIndicators' + sliders.category_id" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li [attr.data-target]="'#carouselExampleIndicators'+sliders.category_id" *ngFor="let x of sliders.images; let i = index" [attr.data-slide-to]="i"
+            [ngClass]="(i == 0) ? 'active' : '' "></li>
+        </ol>
+        <div class="carousel-inner">
+          <div *ngFor="let x of sliders.images; let img = index" class="carousel-item" [ngClass]="(img == 0) ? 'active' : '' ">
+            <img class="d-block w-100" src={{x.url}} alt="{{x.caption}}" width="100%" height="auto">
+          </div>
+          <a class="carousel-control-prev" [href]="'#carouselExampleIndicators'+sliders.category_id" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" [href]="'#carouselExampleIndicators'+sliders.category_id" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
 </div>
