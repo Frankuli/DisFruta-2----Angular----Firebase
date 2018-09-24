@@ -1,14 +1,4 @@
-@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
-.titulos{
-    color: white !important;
-  	background-image: url("/assets/img/cabecera.jpg");
-    background-size: cover;
-    padding-top: 4px;
-    height:100%;
-    font-family: 'Abril Fatface', cursive;
-    text-align: center;
-}
 .titulotienda{
   width:80%;
   margin:s 10px;

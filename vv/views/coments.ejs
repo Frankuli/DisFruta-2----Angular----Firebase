@@ -1,56 +1,26 @@
-<!DOCTYPE html>
-<html ng-app='includes' >
-  <head>
-    <meta charset="utf-8">
-    <title>Admin Panel</title>
-    <link rel="icon" type="image/png" href="img/0.png">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/todo.css">
-    <link rel="stylesheet" href="css/pedidosEstilos.css">
-    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  </head>
-    <div class="col-md-12">
-<% include partials/nav.ejs %>
-    </div>
-        <div class="col-md-11 resumen">
-          <div class="titu">
-            <h1> COMENTARIOS </h1>
-          </div>
+<div class="titu">
+  <h1> COMENTARIOS </h1>
+</div>
 
-          <div class="table-responsive">
-            <div class="table">
-              <table ng-controller="ctrl">
-                <tr  class="bg-warning" >
-                  <th> FECHA </th>
-                  <th> NOMBRE </th>
-                  <th> E-MAIL </th>
-                  <th> ASUNTO </th>
-                  <th> MENSAJE </th>
-                </tr>
-                <% for (var i = comentario.length - 1; i >= 0; i--) { %>
-                <tr>
-                  <td><%= comentario[i].fecha %></td>
-                  <td><%= comentario[i].nombre %></td>
-                  <td><%= comentario[i].mail %></td>
-                  <td><%= comentario[i].asunto %></td>
-                  <td><%= comentario[i].mensaje %></td>
-                </tr>
-                <% } %>
-              </table>
-            </div>
-          </div>
-
-        </div>
-        <div class="col-md-12">
-          <div ng-include src=" 'plantillas/pie.html' " ></div>
-        </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js" > </script>
-        <script src="https://code.angularjs.org/1.6.5/angular-route.min.js"></script>
-        <script src="js/jquery-3.2.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-
-        <script src="js/app.js"></script>
-        <script src="js/admin.js"></script>
-    </body>
-</html>
+<div class="table-responsive">
+  <div class="table">
+    <table ng-controller="ctrl">
+      <tr  class="bg-warning" >
+        <th> FECHA </th>
+        <th> NOMBRE </th>
+        <th> E-MAIL </th>
+        <th> ASUNTO </th>
+        <th> MENSAJE </th>
+      </tr>
+      <% for (var i = comentario.length - 1; i >= 0; i--) { %>
+      <tr>
+        <td><%= comentario[i].fecha %></td>
+        <td><%= comentario[i].nombre %></td>
+        <td><%= comentario[i].mail %></td>
+        <td><%= comentario[i].asunto %></td>
+        <td><%= comentario[i].mensaje %></td>
+      </tr>
+      <% } %>
+    </table>
+  </div>
+</div>

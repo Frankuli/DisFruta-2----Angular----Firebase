@@ -8,14 +8,16 @@ import { AngularFireAuth } from '@angular/fire/auth';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
+  user: firebase.User;
 
   constructor( private afAuth: AngularFireAuth ) {
-
-  }
-  ngOnInit() {
+    afAuth.authState.subscribe(user => this.user = user);
   }
   login(){
     this.afAuth.auth.signInWithRedirect( new firebase.auth.GoogleAuthProvider());
+  }
+  logout(){
+    this.afAuth.auth.signOut();
   }
 }

@@ -18,12 +18,11 @@
 .nav{
   display: grid;
 }
- .modal-body a {
+ /* .modal-body a {
   text-decoration: none;
   color: #fff;
   background: rgb(205,146,8);
   display: inline-block;
-  margin: 5px;
   padding: 10px;
   font-size: 15px;
   width: 50%;
@@ -32,7 +31,7 @@
   cursor: pointer;
   -webkit-transition: .5s ease;
   transition: .5s ease;
-}
+} */
 .modal-body > .form {
   background: white;
   padding: 40px;
@@ -49,7 +48,6 @@
   color: #ffffff;
 }
 .modal-body input{
-  font-size: 22px;
   display: block;
   width: 100%;
   padding: 5px;
@@ -58,7 +56,6 @@
   background-image: none;
   border: 1px solid #a0b3b0;
   color: #000;
-  border-radius: 0;
   -webkit-transition: border-color .25s ease, box-shadow .25s ease;
   transition: border-color .25s ease, box-shadow .25s ease;
 }
@@ -76,6 +73,8 @@
   padding: 5px;
   background: rgb(205,146,8);
   color: #ffffff;
+  margin: 5px;
+  padding: 10px;
 
 }
 .modal-body button:hover, .button:focus {
