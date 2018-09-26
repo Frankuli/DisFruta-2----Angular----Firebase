@@ -1,11 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 body{
-  padding: 0;
-  margin: 0;
-  text-align: center;
   font-family: 'Roboto', sans-serif;
-  color: white;
   line-height: 1.6;
   letter-spacing:1px;
   background: url("/assets/img/fondotodo.jpg") no-repeat center fixed;
@@ -22,16 +18,15 @@ h1, h2, h3, h3, h4, h5, h6{
   font-family: 'Abril Fatface', cursive;
 }
 
-input{
+input, select{
   font-size: 100%;
-  padding: 5px 10px;
-  margin: 15px 0;
+  padding: 5px;
+  margin: 5px 0;
   background: none;
   background-image: none;
   border: 1px solid #a0b3b0;
   color: #000;
-  border-radius: 0;
-
+  border-radius: 5px;
   width: 100%;
 }
 input:focus{
@@ -65,7 +60,9 @@ button:hover, .button:focus {
     font-family: 'Abril Fatface', cursive;
     text-align: center;
 }
-
+form{
+  padding: 5px;
+}
 
 @font-face{
   font-family: 'Abril FatFace';

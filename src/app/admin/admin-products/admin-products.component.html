@@ -1,0 +1,17 @@
+<button class="btn" routerLink="/admin/products/new">Nuevo</button>
+<table class="table table-responsive">
+  <thead>
+    <tr>
+      <th>Producto</th>
+      <th>Precio</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of products$ | async">
+      <td>{{ p.name }}</td>
+      <td>{{ p.price }}</td>
+      <td><a [routerLink]="['/admin/products/', p.$key]">Editar {{p.$key}}</a></td>
+    </tr>
+  </tbody>
+</table>
