@@ -1,5 +1,8 @@
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-admin-products',
@@ -7,16 +10,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-products.component.css'],
 })
 export class AdminProductsComponent implements OnInit {
+  itemsRef: AngularFireList<any>;
+  items: Observable<any[]>;
   products$: any;
+
+ 
 
   constructor(private db: AngularFireDatabase) {
     this.products$ = this.getAll();
   }
 
   getAll() {
-    //return this.db.list('/products').valueChanges();
-
+    this.itemsRef = this.db.list('/products');
+    return this.items = this.itemsRef.snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+      )
+    );
   }
-
+  delete(key) {
+    this.itemsRef.remove(key);
+  }
   ngOnInit() {}
 }

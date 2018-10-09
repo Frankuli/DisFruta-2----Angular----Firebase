@@ -19,6 +19,7 @@ import { IndexComponent } from './home/index/index.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 
@@ -47,6 +48,7 @@ import { environment } from '../environments/environment';
     AngularFireModule.initializeApp(environment.firebase, 'disfruta'),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
+    AngularFireStorageModule,
     RouterModule.forRoot([
       { path: '', component: IndexComponent },
       { path: 'shop', component: ShopComponent },

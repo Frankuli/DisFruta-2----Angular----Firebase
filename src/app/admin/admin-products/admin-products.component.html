@@ -11,7 +11,8 @@
     <tr *ngFor="let p of products$ | async">
       <td>{{ p.name }}</td>
       <td>{{ p.price }}</td>
-      <td><a [routerLink]="['/admin/products/', p.$key]">Editar {{p.$key}}</a></td>
+      <td><a [routerLink]="['/admin/products/'+ p.key]">Editar</a></td>
+      <td><a routerLink="/admin/products" (click)="delete(p.key)">Eliminar</a></td>
     </tr>
   </tbody>
 </table>
