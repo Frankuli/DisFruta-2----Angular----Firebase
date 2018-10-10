@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import * as moment from 'moment'; 
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-produc-form',
@@ -15,14 +15,13 @@ export class ProducFormComponent implements OnInit {
   name: null;
   price: string;
   category: string;
+  image: string;
   id: string;
   producto;
-  productx;
 
   constructor(private db: AngularFireDatabase, private route: ActivatedRoute, private storage: AngularFireStorage, private router: Router) {
 
-    let id = this.route.snapshot.paramMap.get('id');
-    console.log(id);
+
     //if(id) this.get(id).subscribe(p => this.productx = p);
   }
   downloadURL: Observable<string>;
@@ -33,22 +32,28 @@ export class ProducFormComponent implements OnInit {
     this.name = null;
     this.price = null;
     this.category = null;
+    this.image = null;
     this.id = null;
   }
   get(id){
     return this.db.object('/products/'+id);
   }
-  update(){
-
+  update(id, product){
+    console.log(product.name);
+    this.db.list('/product/').update(id,{name: product.name, price: product.price});
   }
   save(product) {
     console.log(product);
-    let urlImage;
-    this.downloadURL.subscribe(url => {
-      urlImage = url;  
-    });
-    console.log(urlImage);
-    this.create(product);
+    // let urlImage;
+    // this.downloadURL.subscribe(url => {
+    //   urlImage = url;
+    // });
+    // console.log(urlImage);
+    let id = this.route.snapshot.paramMap.get('id');
+    if (id)
+      this.update(id, product);
+    else
+      this.create(product);
     this.router.navigate(['/admin/products']);
   }
 
@@ -64,7 +69,7 @@ export class ProducFormComponent implements OnInit {
     )
       .subscribe()
   }
-  
+
 
   ngOnInit(){
     this.route.paramMap
@@ -77,6 +82,7 @@ export class ProducFormComponent implements OnInit {
             this.name = product.name;
             this.price = product.price;
             this.category = product.category;
+            this.image = product.image;
             this.id = id;
           })
       }
