@@ -10,9 +10,9 @@
   </div>
 
   <div class="form-group">
-    <!-- <label for="image">URL imagen</label>
+    <label for="image">URL imagen</label>
     <input type="text" [(ngModel)]="image" name="image" id="image" value="{{filePath}} ">
-    <a [href]="downloadURL | async">{{ downloadURL | async }}</a>
+    <!-- <a [href]="downloadURL | async">{{ downloadURL | async }}</a>
     <img [src]="downloadURL | async" alt=""> -->
     <!-- <progress max="100" [value]="(uploadProgress | async)"> </progress> -->
   </div>
@@ -21,9 +21,7 @@
     <label for="category">Categoria</label>
     <select [(ngModel)]="category" name="category" id="category">
       <option value=""></option>
-      <option value="new">Noticia</option>
-      <option value="promo">Promocion</option>
-      <option value="element">Producto</option>
+      <option *ngFor="let c of categories$ | async" [value]="c.key">{{ c.name }}</option>
     </select>
   </div>
 

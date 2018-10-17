@@ -1,10 +1,11 @@
+import { FilterComponent } from './shop/filter/filter.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { ProducFormComponent } from './admin/produc-form/produc-form.component';
 import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth.service';
 import { SummaryComponent } from './checkout/summary/summary.component';
 import { ProductComponent } from './shop/product/product.component';
-import { FilterComponent } from './shop/filter/filter.component';
+
 import { ProfileComponent } from './profile/profile/profile.component';
 import { ShopComponent } from './shop/shop/shop.component';
 import { FooterComponent } from './shared/footer/footer.component';

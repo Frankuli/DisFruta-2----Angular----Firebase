@@ -1,4 +1,4 @@
-<div *ngFor="let product of producs" class="productos accion" name="">
+<!-- <div *ngFor="let product of producs" class="productos accion" name="">
 
   <label class="" for="">{{product.name}}</label>
 
@@ -11,6 +11,17 @@
     <input  type="" name="" id="" hidden="true" onclick="" />
     <label class="" for="">$ {{product.price}}</label>
   </div>
-
-</div>
-
+</div> -->
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-auto">
+      <div *ngFor="let p of products$ | async" class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{ p.image }}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{ p.name }}</h5>
+          <p class="card-text">{{ p.price }}</p>
+          <button href="#" class="btn">Agregar al Carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>

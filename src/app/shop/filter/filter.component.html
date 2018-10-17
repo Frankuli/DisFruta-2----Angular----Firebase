@@ -1,8 +1,22 @@
-<div class="c1">
+<!-- <div class="c1">
   <strong>FILTROS</strong><br>
     <label class="filtros"><input type="radio" value="0" name="tipo"> FRUTAS</label><br>
     <label class="filtros"><input type="radio" value="1" name="tipo"> VEGETALES</label><br>
     <label class="filtros"><input type="checkbox" value="1" name="promo"> PROMOCIO</label><br>
   <strong>ORDENAR POR</strong><br>
     <label class="filtros"><input type="checkbox" value="" name="precio"> PRECIO</label>
-</div>
+</div> -->
+  <button class="btn"  data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"aria-controls="collapseExample">
+    Filtros
+  </button>
+  <div class="collapse" id="collapseExample">
+    <div class="list-group">
+      <a
+        class="list-group-item list-group-item-action"
+        [routerLink]="shop"
+        [queryParams]= " category = c.key "
+        *ngFor="let c of categories$ | async">
+        {{ c.name }}
+      </a>
+    </div>
+  </div>
