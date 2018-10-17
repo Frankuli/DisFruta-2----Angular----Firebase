@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 @Component({
   selector: 'app-form',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private db: AngularFireDatabase) { }
+  save(msn){
+    console.log(msn);
+    this.db.list('/messages').push(msn);
+  }
   ngOnInit() {
   }
 

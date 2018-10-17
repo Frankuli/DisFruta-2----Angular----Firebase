@@ -40,7 +40,7 @@ export class ProducFormComponent implements OnInit {
   }
   update(id, product){
     console.log(product.name);
-    this.db.list('/product/').update(id,{name: product.name, price: product.price});
+    this.db.list('/products').update(id, product);
   }
   save(product) {
     console.log(product);
@@ -60,8 +60,9 @@ export class ProducFormComponent implements OnInit {
   uploadFile(event) {
     const file = event.target.files[0];
     const filePath = moment().format();
+    this.image = filePath;
     const fileRef = this.storage.ref(filePath);
-    const task = this.storage.upload(filePath, file);
+    const task = this.storage.upload(filePath, file); 
 
     // get notified when the download URL is available
     task.snapshotChanges().pipe(
