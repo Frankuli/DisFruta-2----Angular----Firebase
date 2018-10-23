@@ -11,7 +11,12 @@ export class AuthService {
   constructor(private afAuth: AngularFireAuth) {}
 
   login() {
-    this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+    let provider = new firebase.auth.GoogleAuthProvider;
+    provider.setCustomParameters({
+      'prompt': 'select_account'
+    });
+    this.afAuth.auth.signInWithRedirect(provider);
+    
   }
 
   logout() {

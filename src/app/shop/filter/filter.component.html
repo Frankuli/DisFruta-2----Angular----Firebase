@@ -12,10 +12,11 @@
   <div class="collapse" id="collapseExample">
     <div class="list-group">
       <a
-        class="list-group-item list-group-item-action"
+        *ngFor="let c of categories$ | async"
         [routerLink]="shop"
-        [queryParams]= " category = c.key "
-        *ngFor="let c of categories$ | async">
+        [queryParams]= "{ category: c.key }"
+        [class.activate]= "category === c.key"
+        class="list-group-item list-group-item-action">
         {{ c.name }}
       </a>
     </div>

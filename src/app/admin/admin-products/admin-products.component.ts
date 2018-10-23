@@ -1,6 +1,6 @@
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 
@@ -9,15 +9,24 @@ import { map } from 'rxjs/operators';
   templateUrl: './admin-products.component.html',
   styleUrls: ['./admin-products.component.css'],
 })
-export class AdminProductsComponent implements OnInit {
+export class AdminProductsComponent implements OnInit, OnDestroy {
   produRef: AngularFireList<any>;
   items: Observable<any[]>;
-  products$: any;
-
+  products: any[];
+  subscription: Subscription;
+  filterProducts: any[];
 
 
   constructor(private db: AngularFireDatabase) {
-    this.products$ = this.getAll();
+    this.subscription = this.getAll()
+      .subscribe(products => this.filterProducts = this.products = products);
+  }
+
+  filter(query: string){
+    this.filterProducts = (query)  ?
+      this.products.filter(p => p.payload.val()['title'].toLowerCase().includes(query.toLowerCase())) :
+      this.products;
+
   }
 
   getAll() {
@@ -28,8 +37,14 @@ export class AdminProductsComponent implements OnInit {
       )
     );
   }
+
   delete(key) {
     this.produRef.remove(key);
   }
+  
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
+  }
+
   ngOnInit() {}
 }
