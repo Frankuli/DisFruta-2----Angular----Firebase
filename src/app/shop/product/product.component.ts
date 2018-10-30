@@ -2,6 +2,8 @@ import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
+import { Product } from 'src/app/models/product';
 
 @Component({
   selector: 'app-product',
@@ -9,11 +11,14 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./product.component.css'],
 })
 export class ProductComponent implements OnInit {
-  producs: any;
   produRef: AngularFireList<any>;
   items: Observable<any[]>;
-  products$: any;
-
+  products: Product[];
+  filterProducts: Product[];
+  categories$;
+  catRef: AngularFireList<any>;
+  cats: Observable<any[]>;
+  category: string;
 
 
   getAll() {
@@ -22,10 +27,33 @@ export class ProductComponent implements OnInit {
       .snapshotChanges()
       .pipe(map(changes => changes.map(c => ({ key: c.payload.key, ...c.payload.val() })))));
   }
+  getCategories() {
+    this.catRef = this.db.list('/categories');
+    return (this.cats = this.catRef
+      .snapshotChanges()
+      .pipe(map(changes => changes.map(c => ({ key: c.payload.key, ...c.payload.val() })))));
+  }
 
 
-  constructor(private db: AngularFireDatabase) {
-    this.products$ = this.getAll();
+  constructor(private db: AngularFireDatabase, router: ActivatedRoute) {
+    
+    this.getAll().pipe().subscribe( products => {
+      this.products = products;
+      //console.log(this.products);
+      this.categories$ = this.getCategories();
+
+      router.queryParamMap.subscribe(params => {
+        this.category = params.get('category');
+
+       // console.log(this.category);
+        //console.log(this.products);
+        this.filterProducts = (this.category) ?
+          this.products.filter(p => p.category === this.category) :
+          this.products
+      });
+    });
+    //console.log(this.products);
+
 
   }
   //   this.producs = [

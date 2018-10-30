@@ -2,6 +2,7 @@ import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Product } from 'src/app/models/product';
 
 
 @Component({
@@ -12,21 +13,21 @@ import { map } from 'rxjs/operators';
 export class AdminProductsComponent implements OnInit, OnDestroy {
   produRef: AngularFireList<any>;
   items: Observable<any[]>;
-  products: any[];
+  products: Product[];
   subscription: Subscription;
   filterProducts: any[];
 
 
   constructor(private db: AngularFireDatabase) {
     this.subscription = this.getAll()
-      .subscribe(products => this.filterProducts = this.products = products);
+      .subscribe(products => {this.filterProducts = this.products = products});
   }
 
-  filter(query: string){
-    this.filterProducts = (query)  ?
-      this.products.filter(p => p.payload.val()['title'].toLowerCase().includes(query.toLowerCase())) :
+  filter(query: string) {
+    this.filterProducts = (query) ?    
+      //this.products.filter(p => p.payload.val()['title'].toLowerCase().includes(query.toLowerCase())) :
+      this.products.filter(p => p.name.toLowerCase().includes(query.toLowerCase())) :
       this.products;
-
   }
 
   getAll() {

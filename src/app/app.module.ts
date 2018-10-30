@@ -1,8 +1,8 @@
 import { FilterComponent } from './shop/filter/filter.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { ProducFormComponent } from './admin/produc-form/produc-form.component';
-import { AuthGuard } from './auth-guard.service';
-import { AuthService } from './auth.service';
+import { AuthGuard } from './services/auth-guard.service';
+import { AuthService } from './services/auth.service';
 import { SummaryComponent } from './checkout/summary/summary.component';
 import { ProductComponent } from './shop/product/product.component';
 
@@ -53,11 +53,14 @@ import { environment } from '../environments/environment';
     RouterModule.forRoot([
       { path: '', component: IndexComponent },
       { path: 'shop', component: ShopComponent },
-      { path: 'profile', component: ProfileComponent },
-      { path: 'summary', component: SummaryComponent },
-      { path: 'admin/products', component: AdminProductsComponent },
-      { path: 'admin/products/new', component: ProducFormComponent },
-      { path: 'admin/products/:id', component: ProducFormComponent },
+      { path: 'login', component: ProfileComponent },
+
+      { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+      { path: 'summary', component: SummaryComponent, canActivate: [AuthGuard] },
+      
+      { path: 'admin/products', component: AdminProductsComponent, canActivate : [AuthGuard] },
+      { path: 'admin/products/new', component: ProducFormComponent, canActivate: [AuthGuard] },
+      { path: 'admin/products/:id', component: ProducFormComponent, canActivate: [AuthGuard] },
     ]),
   ],
   providers: [AuthService, AuthGuard],

@@ -12,10 +12,26 @@
     <label class="" for="">$ {{product.price}}</label>
   </div>
 </div> -->
+<button class="btn" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+  Filtros
+</button>
+<div class="collapse" id="collapseExample">
+  <div class="list-group">
+    <a 
+    *ngFor="let c of categories$ | async"
+    [routerLink]="shop" 
+    [queryParams]="{ category: c.key }" 
+    [class.activate]="category === c.key"
+      class="list-group-item list-group-item-action">
+      {{ c.name }}
+    </a>
+  </div>
+</div>
+
 <div class="container">
   <div class="row justify-content-md-center">
     <div class="col-md-auto">
-      <div *ngFor="let p of products$ | async" class="card" style="width: 18rem;">
+      <div *ngFor="let p of filterProducts" class="card" style="width: 18rem;">
         <img class="card-img-top" src="{{ p.image }}" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{ p.name }}</h5>
