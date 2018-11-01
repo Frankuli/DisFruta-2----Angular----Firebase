@@ -26,6 +26,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 
 import { environment } from '../environments/environment';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,11 @@ import { environment } from '../environments/environment';
       { path: 'admin/products/:id', component: ProducFormComponent, canActivate: [AuthGuard] },
     ]),
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [
+    AuthService, 
+    AuthGuard,
+    UserService
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
