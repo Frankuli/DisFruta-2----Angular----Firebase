@@ -1,3 +1,4 @@
+import { AdminAuthGuard } from './services/admin-auth-guard.service';
 import { FilterComponent } from './shop/filter/filter.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { ProducFormComponent } from './admin/produc-form/produc-form.component';
@@ -58,15 +59,16 @@ import { UserService } from './services/user.service';
 
       { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
       { path: 'summary', component: SummaryComponent, canActivate: [AuthGuard] },
-      
-      { path: 'admin/products', component: AdminProductsComponent, canActivate : [AuthGuard] },
-      { path: 'admin/products/new', component: ProducFormComponent, canActivate: [AuthGuard] },
-      { path: 'admin/products/:id', component: ProducFormComponent, canActivate: [AuthGuard] },
+
+      { path: 'admin/products', component: AdminProductsComponent, canActivate : [AuthGuard, AdminAuthGuard] },
+      { path: 'admin/products/new', component: ProducFormComponent, canActivate: [AuthGuard, AdminAuthGuard] },
+      { path: 'admin/products/:id', component: ProducFormComponent, canActivate: [AuthGuard, AdminAuthGuard] },
     ]),
   ],
   providers: [
-    AuthService, 
+    AuthService,
     AuthGuard,
+    AdminAuthGuard,
     UserService
   ],
   bootstrap: [AppComponent],

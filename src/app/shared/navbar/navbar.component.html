@@ -69,16 +69,16 @@
         </div>
 
       </li>
-      <li class="nav-item dropdown" *ngIf="auth.user$ | async as user">
+      <li class="nav-item dropdown" *ngIf="appUser">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false">
-          {{ user.displayName }}
+          {{ appUser.name }}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" routerLink='/profile'>PERFIL</a>
-          <a class="dropdown-item" routerLink="#">VENTAS</a>
-          <a class="dropdown-item" routerLink="#">COMENTARIOS</a>
-          <a class="dropdown-item" routerLink='/admin/products'>PRODUCTOS</a>
+          <a *ngIf="appUser.isAdmin" class="dropdown-item" routerLink="#">VENTAS</a>
+          <a *ngIf="appUser.isAdmin" class="dropdown-item" routerLink="#">COMENTARIOS</a>
+          <a *ngIf="appUser.isAdmin" class="dropdown-item" routerLink='/admin/products'>PRODUCTOS</a>
           <a class="dropdown-item" (click)="logout()" href="#">LOGOUT</a>
         </div>
       </li>
