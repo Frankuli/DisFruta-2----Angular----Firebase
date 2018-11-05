@@ -1,28 +1,37 @@
 <form #f="ngForm" (ngSubmit)="save(f.value)">
   <div class="form-group">
     <label for="name">Nombre</label>
-    <input [(ngModel)]="name" name="name" id="name" type="text">
+    <input #n="ngModel" [(ngModel)]="name" name="name" id="name" type="text" required>
+    <div *ngIf="n.touched && n.invalid" class="alert alert-danger">
+      El nombre es requerido
+    </div>
   </div>
 
   <div class="form-group">
     <label for="price">Precio en $</label>
-    <input [(ngModel)]="price" name="price" id="price" type="number">
+    <input #p="ngModel" [(ngModel)]="price" name="price" id="price" type="number" required>
+    <div *ngIf="p.touched && p.invalid" class="alert alert-danger">
+      El precio es requerido
+    </div>
   </div>
 
   <div class="form-group">
     <label for="image">URL imagen</label>
-    <input type="text" [(ngModel)]="image" name="image" id="image" value="{{filePath}} ">
-    <!-- <a [href]="downloadURL | async">{{ downloadURL | async }}</a>
-    <img [src]="downloadURL | async" alt=""> -->
-    <!-- <progress max="100" [value]="(uploadProgress | async)"> </progress> -->
+    <input #i="ngModel" type="text" [(ngModel)]="image" name="image" id="image" value="{{filePath}} " required>
+    <div *ngIf="i.touched && i.invalid" class="alert alert-danger">
+      La imagen es requerida
+    </div>
   </div>
 
   <div class="form-group">
     <label for="category">Categoria</label>
-    <select [(ngModel)]="category" name="category" id="category">
+    <select #c="ngModel" [(ngModel)]="category" name="category" id="category" required>
       <option value=""></option>
       <option *ngFor="let c of categories$ | async" [value]="c.key">{{ c.name }}</option>
     </select>
+    <div *ngIf="c.touched && c.invalid" class="alert alert-danger">
+      La categoria es requerida
+    </div>
   </div>
 
   <button class="btn">Guardar</button>

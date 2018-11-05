@@ -1,3 +1,6 @@
+import { ShoppingCartService } from './services/shopping-cart.service';
+import { ProductService } from './services/product.service';
+import { CategoryService } from './services/category.service';
 import { AdminAuthGuard } from './services/admin-auth-guard.service';
 import { FilterComponent } from './shop/filter/filter.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
@@ -69,7 +72,10 @@ import { UserService } from './services/user.service';
     AuthService,
     AuthGuard,
     AdminAuthGuard,
-    UserService
+    UserService,
+    CategoryService,
+    ProductService,
+    ShoppingCartService
   ],
   bootstrap: [AppComponent],
 })

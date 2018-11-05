@@ -1,28 +1,20 @@
-<!-- <div *ngFor="let product of producs" class="productos accion" name="">
-
-  <label class="" for="">{{product.name}}</label>
-
-  <div *ngIf="product.stock <= 0">
-    <img style="filter: grayscale(100%);" class="img-productos" src={{product.image}}>
-    <p class="no"><strong class="alert alert-danger"> No hay stock</strong></p>
-  </div>
-  <div>
-    <img *ngIf="product.stock > 0" class="img-productos" src={{product.image}}>
-    <input  type="" name="" id="" hidden="true" onclick="" />
-    <label class="" for="">$ {{product.price}}</label>
-  </div>
-</div> -->
 <button class="btn" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
   Filtros
 </button>
 <div class="collapse" id="collapseExample">
   <div class="list-group">
-    <a 
+    <a
+    class="list-group-item list-group-item-action"
+    [class.active]="!category"
+    [routerLink]="shop">
+      Todos los productos
+    </a>
+    <a
     *ngFor="let c of categories$ | async"
-    [routerLink]="shop" 
-    [queryParams]="{ category: c.key }" 
-    [class.activate]="category === c.key"
-      class="list-group-item list-group-item-action">
+    [routerLink]="shop"
+    [queryParams]="{ category: c.key }"
+    [class.active]="category == c.key"
+    class="list-group-item list-group-item-action">
       {{ c.name }}
     </a>
   </div>
@@ -36,7 +28,10 @@
         <div class="card-body">
           <h5 class="card-title">{{ p.name }}</h5>
           <p class="card-text">{{ p.price }}</p>
-          <button href="#" class="btn">Agregar al Carrito</button>
+          <button
+          (click)="addToCard(p)"
+          class="btn">
+          Agregar al Carrito</button>
         </div>
       </div>
     </div>

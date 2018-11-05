@@ -1,7 +1,7 @@
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import { ProductService } from './../../services/product.service';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 import { Product } from 'src/app/models/product';
 
 
@@ -10,42 +10,30 @@ import { Product } from 'src/app/models/product';
   templateUrl: './admin-products.component.html',
   styleUrls: ['./admin-products.component.css'],
 })
-export class AdminProductsComponent implements OnInit, OnDestroy {
-  produRef: AngularFireList<any>;
-  items: Observable<any[]>;
+export class AdminProductsComponent implements OnDestroy {
+
   products: Product[];
   subscription: Subscription;
   filterProducts: any[];
 
 
-  constructor(private db: AngularFireDatabase) {
-    this.subscription = this.getAll()
+  constructor(private db: AngularFireDatabase, private productService: ProductService) {
+    this.subscription = this.productService.getAll()
       .subscribe(products => {this.filterProducts = this.products = products});
   }
 
   filter(query: string) {
-    this.filterProducts = (query) ?    
-      //this.products.filter(p => p.payload.val()['title'].toLowerCase().includes(query.toLowerCase())) :
+    this.filterProducts = (query) ?
       this.products.filter(p => p.name.toLowerCase().includes(query.toLowerCase())) :
       this.products;
   }
 
-  getAll() {
-    this.produRef = this.db.list('/products');
-    return this.items = this.produRef.snapshotChanges().pipe(
-      map(changes =>
-        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-      )
-    );
-  }
-
   delete(key) {
-    this.produRef.remove(key);
+    if (confirm('Segure?')) {
+      this.productService.delete(key);
+    }
   }
-  
   ngOnDestroy(){
     this.subscription.unsubscribe();
   }
-
-  ngOnInit() {}
 }
