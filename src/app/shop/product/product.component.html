@@ -1,25 +1,4 @@
-<button class="btn" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-  Filtros
-</button>
-<div class="collapse" id="collapseExample">
-  <div class="list-group">
-    <a
-    class="list-group-item list-group-item-action"
-    [class.active]="!category"
-    [routerLink]="shop">
-      Todos los productos
-    </a>
-    <a
-    *ngFor="let c of categories$ | async"
-    [routerLink]="shop"
-    [queryParams]="{ category: c.key }"
-    [class.active]="category == c.key"
-    class="list-group-item list-group-item-action">
-      {{ c.name }}
-    </a>
-  </div>
-</div>
-
+<app-filter [category]="category" ></app-filter>
 <div class="container">
   <div class="row justify-content-md-center">
     <div class="col-md-auto">
@@ -28,10 +7,13 @@
         <div class="card-body">
           <h5 class="card-title">{{ p.name }}</h5>
           <p class="card-text">{{ p.price }}</p>
+        </div>
+        <div class="card-footer">
           <button
           (click)="addToCard(p)"
           class="btn">
           Agregar al Carrito</button>
+          <div>{{ getQuantity(p) }}</div>
         </div>
       </div>
     </div>

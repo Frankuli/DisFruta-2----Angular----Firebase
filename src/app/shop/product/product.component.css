@@ -52,8 +52,11 @@ label{
   text-align: center;
   display: block;
 }
-.list-group-item.active{
-    color: #fff;
-    background-color: #856404;
-    border-color: #856404;
+.card-footer{
+  padding: 0px !important;
+  margin: 0px;
+  text-align: center;
+}
+.card{
+  margin-bottom: 5px !important;
 }

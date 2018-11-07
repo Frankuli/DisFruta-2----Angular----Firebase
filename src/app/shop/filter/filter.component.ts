@@ -1,8 +1,5 @@
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-import { AngularFireList, AngularFireDatabase } from '@angular/fire/database';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { CategoryService } from './../../services/category.service';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-filter',
@@ -10,11 +7,11 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./filter.component.css'],
 })
 export class FilterComponent implements OnInit {
+  categories$;
+  @Input('category') category;
 
-
-
-  constructor(private db: AngularFireDatabase) {
-
+  constructor(private categoryService: CategoryService ) {
+    this.categories$ = this.categoryService.getAll();
   }
 
   ngOnInit() {}
