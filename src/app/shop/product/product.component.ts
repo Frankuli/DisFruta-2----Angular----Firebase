@@ -38,6 +38,10 @@ export class ProductComponent implements OnInit, OnDestroy{
       });
 
   }
+  removeFromCart(product: Product){
+    this.cartService.removeFromCart(product);
+
+  }
   addToCard(product: Product) {
     this.cartService.addToCart(product);
   }
@@ -49,8 +53,8 @@ export class ProductComponent implements OnInit, OnDestroy{
   }
 
   async ngOnInit() {
-    this.subscription = (await this.cartService.getCart()).valueChanges()
-      .subscribe(cart => (this.cart = cart));
+    this.subscription = (await this.cartService.getCart())
+      .subscribe(cart => this.cart = cart);
   }
 
   ngOnDestroy() {

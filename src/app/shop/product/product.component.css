@@ -60,3 +60,6 @@ label{
 .card{
   margin-bottom: 5px !important;
 }
+.card-footer button{
+  cursor: pointer;
+}

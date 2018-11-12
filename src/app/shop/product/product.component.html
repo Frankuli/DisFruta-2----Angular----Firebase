@@ -10,10 +10,24 @@
         </div>
         <div class="card-footer">
           <button
+          *ngIf="getQuantity(p) === 0; else updateQuantity" 
           (click)="addToCard(p)"
           class="btn">
           Agregar al Carrito</button>
-          <div>{{ getQuantity(p) }}</div>
+          <ng-template #updateQuantity>
+            <div class="row no-gutters">
+              <div class="col-2 no-gutters">
+                <button
+                (click)="removeFromCart(p)" 
+                class="btn btn-secondary btn-block">-</button>
+              </div>
+              <div class="col align-middle text-center">{{ getQuantity(p) }} en el carrito</div>
+              <div class="col-2 no-gutters">
+                <button (click)="addToCard(p)"
+                class="btn btn-secondary btn-block">+</button>
+              </div>
+            </div>
+          </ng-template>
         </div>
       </div>
     </div>

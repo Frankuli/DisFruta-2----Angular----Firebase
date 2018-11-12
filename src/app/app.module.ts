@@ -32,6 +32,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import { UserService } from './services/user.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +60,8 @@ import { UserService } from './services/user.service';
       { path: '', component: IndexComponent },
       { path: 'shop', component: ShopComponent },
       { path: 'login', component: ProfileComponent },
+      { path: 'cart', component: SummaryComponent },
+
 
       { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
       { path: 'summary', component: SummaryComponent, canActivate: [AuthGuard] },

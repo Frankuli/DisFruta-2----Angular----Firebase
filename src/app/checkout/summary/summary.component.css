@@ -1,7 +1,6 @@
-/* {
+.cabezera{
   background: url("/assets/img/fondo.jpg");
-} */
-
+}
 .ti{
   display: inline-block;
   color: white!important;
@@ -18,9 +17,10 @@ h1,h2,h3{
   margin: 3px;
 }
 .tomate{
-  float: right;
+  position:absolute;
   display: inline-block;
-  width: 54%;
+  width: 40%;
+  float: right;
 }
 .resumen{
   background-color: #fff !important;
@@ -32,19 +32,4 @@ h1,h2,h3{
   margin-top:  15px;
   display: block !important;
 
-}
-input[type=checkbox], input[type=radio]{
-width: auto!important;
-}
-button{
-  margin: 10px;
-  padding: 10px;
-}
-table {
-   width: 100%;
-}
-th, td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 2px solid black;
 }

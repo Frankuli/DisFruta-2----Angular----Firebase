@@ -38,7 +38,6 @@ button {
   outline: none;
   border-radius: 0;
   padding: 15px;
-  margin:10px;
   font-size: 2rem;
   font-weight: 600;
   letter-spacing: .1em;
@@ -70,7 +69,7 @@ form{
 
 }
 
-.list-group-item.active{
+.list-group-item.active, .btn-secondary, .btn-secondary:hover{
     color: #fff;
     background-color: #856404;
     border-color: #856404;

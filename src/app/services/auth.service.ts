@@ -1,5 +1,5 @@
 import { UserService } from './user.service';
-import { appUser } from './../models/user';
+import { AppUser } from './../models/user';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
@@ -37,7 +37,7 @@ export class AuthService {
     this.afAuth.auth.signOut();
   }
 
-  get appUser$(): Observable<appUser> {
+  get appUser$(): Observable<AppUser> {
     return this.user$.pipe(
       switchMap(user => {
         if (user) return this.userService.get(user.uid).valueChanges();

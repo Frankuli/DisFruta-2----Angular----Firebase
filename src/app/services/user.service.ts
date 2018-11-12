@@ -1,4 +1,4 @@
-import { appUser } from './../models/user';
+import { AppUser } from './../models/user';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
 import * as firebase from 'firebase';
@@ -20,7 +20,7 @@ export class UserService {
     });
   }
 
-  get(uid: string): AngularFireObject<appUser> {
+  get(uid: string): AngularFireObject<AppUser> {
     return this.db.object('/users/' + uid);
   }
 }
