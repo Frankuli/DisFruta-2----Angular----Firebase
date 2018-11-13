@@ -1,0 +1,9 @@
+<div class="row no-gutters">
+  <div class="col-2 no-gutters">
+    <button (click)="removeFromCart(p)" class="btn btn-secondary btn-block">-</button>
+  </div>
+  <div class="col align-middle text-center">{{ getQuantity(p) }} en el carrito</div>
+  <div class="col-2 no-gutters">
+    <button (click)="addToCard(p)" class="btn btn-secondary btn-block">+</button>
+  </div>
+</div>

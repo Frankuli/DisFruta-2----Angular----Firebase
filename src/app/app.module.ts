@@ -31,6 +31,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 import { environment } from '../environments/environment';
 import { UserService } from './services/user.service';
+import { ProductQuantityComponent } from './checkout/product-quantity/product-quantity.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { UserService } from './services/user.service';
     ProductComponent,
     SummaryComponent,
     ProducFormComponent,
-    AdminProductsComponent
+    AdminProductsComponent,
+    ProductQuantityComponent
   ],
   imports: [
     BrowserModule,
