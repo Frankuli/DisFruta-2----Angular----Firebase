@@ -6,11 +6,11 @@
         <img class="card-img-top" src="{{ p.image }}" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{ p.name }}</h5>
-          <p class="card-text">{{ p.price }}</p>
+          <p class="card-text">${{ p.price }} Kg</p>
         </div>
         <div class="card-footer">
           <button
-          *ngIf="getQuantity(p) === 0; else updateQuantity" 
+          *ngIf="getQuantity(p) === 0; else updateQuantity"
           (click)="addToCard(p)"
           class="btn">
           Agregar al Carrito</button>
@@ -18,7 +18,7 @@
             <div class="row no-gutters">
               <div class="col-2 no-gutters">
                 <button
-                (click)="removeFromCart(p)" 
+                (click)="removeFromCart(p)"
                 class="btn btn-secondary btn-block">-</button>
               </div>
               <div class="col align-middle text-center">{{ getQuantity(p) }} en el carrito</div>

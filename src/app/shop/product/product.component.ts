@@ -48,7 +48,7 @@ export class ProductComponent implements OnInit, OnDestroy{
 
   getQuantity(product: Product) {
     if (!this.cart) return 0;
-    let item = this.cart.items[product.key];
+    let item = this.cart.itemsMap[product.key];
     return item ? item.quantity : 0;
   }
 
