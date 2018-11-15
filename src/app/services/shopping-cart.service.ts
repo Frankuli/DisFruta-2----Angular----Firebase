@@ -23,7 +23,7 @@ export class ShoppingCartService {
     let cart = this.db.object('/shopping-carts/' + cartId).snapshotChanges().pipe(
       map((action: any) => {
         const key = action.key;
-        const items = action.payload.val().items;
+        const items = (action.payload.val()) ? action.payload.val().items : [];
         return new ShoppingCart(key, items);
       })
     )

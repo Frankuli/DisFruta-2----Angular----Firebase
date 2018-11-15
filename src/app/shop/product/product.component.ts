@@ -39,7 +39,8 @@ export class ProductComponent implements OnInit, OnDestroy{
 
   }
   removeFromCart(product: Product){
-    this.cartService.removeFromCart(product);
+    console.log(product);
+    //this.cartService.removeFromCart(product);
 
   }
   addToCard(product: Product) {

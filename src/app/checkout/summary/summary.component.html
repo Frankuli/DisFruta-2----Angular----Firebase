@@ -23,7 +23,22 @@
     <tbody>
       <tr *ngFor="let item of cart.items">
         <td>{{ item.products.name }}</td>
-        <td>{{ item.quantity }}</td>
+        <td>
+              <button *ngIf="item.quantity === 0; else updateQuantity" (click)="addToCard(p)" class="btn">
+                Agregar al Carrito</button>
+              <ng-template #updateQuantity>
+                <div class="row no-gutters">
+                  <div class="col-2 no-gutters">
+                    <button (click)="removeFromCart(item.products)" class="btn btn-secondary btn-block">-</button>
+                  </div>
+                  <div class="col align-middle text-center">
+                    {{ item.quantity }}</div>
+                  <div class="col-2 no-gutters">
+                    <button (click)="addToCard(item.products)" class="btn btn-secondary btn-block">+</button>
+                  </div>
+                </div>
+              </ng-template>
+        </td>
         <td><strong>$ </strong>{{ item.totalPrice }}</td>
       </tr>
     </tbody>
