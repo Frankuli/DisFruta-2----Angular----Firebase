@@ -33,3 +33,7 @@ h1,h2,h3{
   display: block !important;
 
 }
+.bo{
+padding: 1px;
+margin: 1px;
+}

@@ -6,7 +6,7 @@ export class ShoppingCart {
     constructor(public key: string, public itemsMap: { [productId: string]: ShoppingCartItem }) {
         for (let productId in itemsMap){
             let item = itemsMap[productId];
-            this.items.push(new ShoppingCartItem(item.products, item.quantity));
+            this.items.push(new ShoppingCartItem ({ ...item, key: productId }));
         }
     }
 
