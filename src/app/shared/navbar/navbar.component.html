@@ -5,7 +5,7 @@
       <span class="badge badge-warning badge-pill"> {{cart.totalItemsCount}} </span>
     </a>
   </div>
-  
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -81,9 +81,10 @@
           {{ appUser.name }}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" routerLink='/profile'>PERFIL</a>
-          <a *ngIf="appUser.isAdmin" class="dropdown-item" routerLink="#">VENTAS</a>
-          <a *ngIf="appUser.isAdmin" class="dropdown-item" routerLink="#">COMENTARIOS</a>
+          <!-- <a class="dropdown-item" routerLink='/profile'>PERFIL</a> -->
+          <a class="dropdown-item" routerLink='/buy'>MIS COMPRAS</a>
+          <a *ngIf="appUser.isAdmin" class="dropdown-item" routerLink="/admin/orders">VENTAS</a>
+          <a *ngIf="appUser.isAdmin" class="dropdown-item" routerLink="/admin/comments">COMENTARIOS</a>
           <a *ngIf="appUser.isAdmin" class="dropdown-item" routerLink='/admin/products'>PRODUCTOS</a>
           <a class="dropdown-item" (click)="logout()" href="#">LOGOUT</a>
         </div>

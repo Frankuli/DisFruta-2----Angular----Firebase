@@ -15,15 +15,12 @@ export class SummaryComponent implements OnInit {
 
   async ngOnInit() {
     this.cart$ = await this.shoppingCartService.getCart();
-    console.log(this.cart$);
   }
 
   removeFromCart(product: Product) {
-    console.log(product);
     this.shoppingCartService.removeFromCart(product);
   }
   addToCard(product: Product) {
-    //console.log(product);
     this.shoppingCartService.addToCart(product);
   }
 

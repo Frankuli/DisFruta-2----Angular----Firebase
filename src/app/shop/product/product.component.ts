@@ -1,3 +1,4 @@
+import { ShoppingCart } from 'src/app/models/shopping-cart';
 import { ShoppingCartService } from './../../services/shopping-cart.service';
 import { Product } from './../../models/product';
 import { switchMap } from 'rxjs/operators';
@@ -15,33 +16,19 @@ export class ProductComponent implements OnInit, OnDestroy{
   products: Product[] = [];
   filterProducts: Product[] = [];
   category: string;
-  cart;
+  cart: ShoppingCart;
   subscription;
 
   constructor(
     private router: ActivatedRoute,
     private productService: ProductService,
-    private cartService: ShoppingCartService){
+    private cartService: ShoppingCartService){}
 
-    productService
-    .getAll()
-    .pipe(switchMap( products => {
-      this.products = products;
-      return router.queryParamMap;
-    }))
-      .subscribe(params => {
-        this.category = params.get('category');
-
-        this.filterProducts = (this.category) ?
-          this.products.filter(p => p.category === this.category) :
-          this.products
-      });
-
-  }
   removeFromCart(product: Product){
     this.cartService.removeFromCart(product);
 
   }
+
   addToCard(product: Product) {
     this.cartService.addToCart(product);
   }
@@ -52,9 +39,31 @@ export class ProductComponent implements OnInit, OnDestroy{
     return item ? item.quantity : 0;
   }
 
+  private applyFilter(){
+    this.filterProducts = (this.category) ?
+    this.products.filter(p => p.category === this.category) :
+    this.products
+
+  }
+
+  private populateProducts(){
+    this.productService
+      .getAll()
+      .pipe(switchMap(products => {
+        this.products = products;
+        return this.router.queryParamMap;
+      }))
+      .subscribe(params => {
+        this.category = params.get('category');
+        this.applyFilter();
+      });
+  }
   async ngOnInit() {
     this.subscription = (await this.cartService.getCart())
       .subscribe(cart => this.cart = cart);
+
+    this.populateProducts();
+
   }
 
   ngOnDestroy() {

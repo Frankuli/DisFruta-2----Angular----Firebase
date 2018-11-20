@@ -1,0 +1,24 @@
+<div class="titulos">
+  <h1> ENVIO </h1>
+</div>
+<form #f="ngForm">
+  <div class="form-group">
+    <label for="">A Nombre de:</label>
+    <input #name="ngModel" name="name" [(ngModel)]="shipping.name" type="text" class="form-control" required>
+    <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+      <div *ngIf="name.errors.required">Se requiere un Nombre</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="">Direccion de Envio</label>
+    <input #addressLine1="ngModel" name="address" [(ngModel)]="shipping.address" type="text" class="form-control"
+      placeholder="Direccion" required>
+    <div class="alert alert-danger" *ngIf="address.touched && address.invalid">
+      <div *ngIf="addressLine1.errors.required">Se requiere una Direccion</div>
+    </div>
+  </div>
+
+  <button (click)="placeOrder()" class="btn">Enviar</button>
+</form>
+
+<button class="btn" routerLink="/summary">Volver</button>

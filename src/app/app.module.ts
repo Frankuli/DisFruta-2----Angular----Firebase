@@ -1,3 +1,8 @@
+import { CommentComponent } from './admin/comment/comment.component';
+import { LogComponent } from './shared/log/log.component';
+import { BuyComponent } from './user/buy/buy.component';
+import { OrderService } from './services/order.service';
+import { SendComponent } from './checkout/send/send.component';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { ProductService } from './services/product.service';
 import { CategoryService } from './services/category.service';
@@ -9,8 +14,6 @@ import { AuthGuard } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { SummaryComponent } from './checkout/summary/summary.component';
 import { ProductComponent } from './shop/product/product.component';
-
-import { ProfileComponent } from './profile/profile/profile.component';
 import { ShopComponent } from './shop/shop/shop.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { FormComponent } from './shared/form/form.component';
@@ -31,7 +34,10 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 import { environment } from '../environments/environment';
 import { UserService } from './services/user.service';
-import { ProductQuantityComponent } from './checkout/product-quantity/product-quantity.component';
+import { ProfileComponent } from './user/profile/profile.component';
+import { OrderComponent } from './admin/order/order.component';
+
+
 
 
 @NgModule({
@@ -43,13 +49,17 @@ import { ProductQuantityComponent } from './checkout/product-quantity/product-qu
     FooterComponent,
     IndexComponent,
     ShopComponent,
-    ProfileComponent,
     FilterComponent,
     ProductComponent,
     SummaryComponent,
     ProducFormComponent,
     AdminProductsComponent,
-    ProductQuantityComponent
+    SendComponent,
+    BuyComponent,
+    ProfileComponent,
+    LogComponent,
+    OrderComponent,
+    CommentComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,14 +71,20 @@ import { ProductQuantityComponent } from './checkout/product-quantity/product-qu
     RouterModule.forRoot([
       { path: '', component: IndexComponent },
       { path: 'shop', component: ShopComponent },
-      { path: 'login', component: ProfileComponent },
+      { path: 'login', component: LogComponent },
       { path: 'cart', component: SummaryComponent },
 
-
       { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-      { path: 'summary', component: SummaryComponent, canActivate: [AuthGuard] },
+      { path: 'buy', component: BuyComponent, canActivate: [AuthGuard] },
 
-      { path: 'admin/products', component: AdminProductsComponent, canActivate : [AuthGuard, AdminAuthGuard] },
+      { path: 'summary', component: SummaryComponent, canActivate: [AuthGuard] },
+      { path: 'summary/send', component: SendComponent, canActivate: [AuthGuard] },
+
+      { path: 'admin/orders', component: OrderComponent, canActivate: [AuthGuard, AdminAuthGuard] },
+
+      { path: 'admin/comments', component: CommentComponent, canActivate: [AuthGuard, AdminAuthGuard] },
+
+      { path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuard, AdminAuthGuard] },
       { path: 'admin/products/new', component: ProducFormComponent, canActivate: [AuthGuard, AdminAuthGuard] },
       { path: 'admin/products/:id', component: ProducFormComponent, canActivate: [AuthGuard, AdminAuthGuard] },
     ]),
@@ -80,7 +96,8 @@ import { ProductQuantityComponent } from './checkout/product-quantity/product-qu
     UserService,
     CategoryService,
     ProductService,
-    ShoppingCartService
+    ShoppingCartService,
+    OrderService,
   ],
   bootstrap: [AppComponent],
 })
