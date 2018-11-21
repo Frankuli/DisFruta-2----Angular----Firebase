@@ -1,6 +1,6 @@
 import { ProductService } from './../../services/product.service';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Product } from 'src/app/models/product';
 

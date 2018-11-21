@@ -1,3 +1,4 @@
+import { DetailComponent } from './shared/detail/detail.component';
 import { CommentComponent } from './admin/comment/comment.component';
 import { LogComponent } from './shared/log/log.component';
 import { BuyComponent } from './user/buy/buy.component';
@@ -60,6 +61,7 @@ import { OrderComponent } from './admin/order/order.component';
     LogComponent,
     OrderComponent,
     CommentComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,
@@ -81,6 +83,7 @@ import { OrderComponent } from './admin/order/order.component';
       { path: 'summary/send', component: SendComponent, canActivate: [AuthGuard] },
 
       { path: 'admin/orders', component: OrderComponent, canActivate: [AuthGuard, AdminAuthGuard] },
+      { path: 'admin/orders/:id', component: DetailComponent, canActivate: [AuthGuard, AdminAuthGuard] },
 
       { path: 'admin/comments', component: CommentComponent, canActivate: [AuthGuard, AdminAuthGuard] },
 

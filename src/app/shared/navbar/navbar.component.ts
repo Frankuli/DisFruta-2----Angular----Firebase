@@ -14,9 +14,10 @@ import { ShoppingCart } from 'src/app/models/shopping-cart';
 export class NavbarComponent implements OnInit {
   appUser: AppUser;
   cart$: Observable<ShoppingCart>;
+  isNavbarCollapsed: boolean = true;
 
   constructor(
-    public auth: AuthService, 
+    public auth: AuthService,
     private shoppingCartService: ShoppingCartService ) {
 
   }
@@ -28,6 +29,11 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.auth.logout();
   }
+
+  collapsed() {
+    this.isNavbarCollapsed = !this.isNavbarCollapsed;
+  }
+
 
   async ngOnInit(){
     this.auth.appUser$.subscribe(appUser => this.appUser = appUser)

@@ -11,12 +11,14 @@ import { OrderService } from 'src/app/services/order.service';
 export class BuyComponent{
   orders$;
 
+
   constructor(
     private authService: AuthService,
     private orderService: OrderService) {
 
       this.orders$ = authService.user$.pipe(switchMap(u => orderService.getOrdersByUser(u.uid)));
       console.log(this.orders$);
+
     }
     c(o){
       console.log(o);

@@ -8,11 +8,12 @@ import { SliderComponent } from './slider/slider.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ModalComponent } from './modal/modal.component';
 import { LogComponent } from './log/log.component';
+import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [ContactComponent, FooterComponent, FormComponent, NavbarComponent, SliderComponent, SpinnerComponent, ModalComponent, LogComponent]
+  declarations: [ContactComponent, FooterComponent, FormComponent, NavbarComponent, SliderComponent, SpinnerComponent, ModalComponent, LogComponent, DetailComponent]
 })
 export class SharedModule { }

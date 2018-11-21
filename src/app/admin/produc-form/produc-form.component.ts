@@ -48,7 +48,6 @@ export class ProducFormComponent implements OnInit {
     const fileRef = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, file);
 
-    // get notified when the download URL is available
     task
       .snapshotChanges()
       .pipe(finalize(() => (this.downloadURL = fileRef.getDownloadURL())))

@@ -10,7 +10,11 @@ export class OrderComponent{
   orders$;
 
   constructor(private orderService: OrderService) {
-    this.orders$ = orderService.getOrders();
+    this.orders$ = orderService.getAll();
   }
+c(o){
+console.log(o);
+}
+
 }
 

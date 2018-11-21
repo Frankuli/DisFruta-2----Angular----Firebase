@@ -1,4 +1,4 @@
-<div class="titu">
+<div class="titulos">
   <h1> MIS COMPRAS</h1>
 </div>
 <table class="table">
@@ -11,8 +11,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let order of orders$ | async">
-      <td>{{ c(order) }}</td>
-      <!-- <td>{{ order.datePlaced }}</td> -->
+      <td>{{ order.datePlaced }}</td>
       <td>
         <a href="#">View</a>
       </td>

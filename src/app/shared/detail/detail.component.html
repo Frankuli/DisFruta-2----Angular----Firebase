@@ -1,0 +1,29 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th class="text-center">Cantidad</th>
+      <th class="text-center">Precio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of order$ | async ">
+      <td>{{ item.shipping.name }}</td>
+      <td class="">
+        <div class="row no-gutters">
+          <div class="col-2 no-gutters">
+            <button (click)="removeFromCart(item)" class="btn btn-block bo">-</button>
+          </div>
+          <div class="col align-middle text-center">
+            {{ item.quantity }}</div>
+          <div class="col-2 no-gutters">
+            <button (click)="addToCard(item)" class="btn btn-block bo">+</button>
+          </div>
+        </div>
+      </td>
+      <td class="text-center"><strong>$ </strong>{{ item.totalPrice }}</td>
+    </tr>
+  </tbody>
+</table>
+
+

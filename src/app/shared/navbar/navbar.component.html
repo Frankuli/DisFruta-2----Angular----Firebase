@@ -7,22 +7,22 @@
   </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
-    aria-expanded="false" aria-label="Toggle navigation">
+    aria-expanded="false" aria-label="Toggle navigation"(click)="collapsed();">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/#shop">PRODUCTOS<span class="sr-only">(current)</span></a>
+        <a class="nav-link" (click)="collapsed();" href="/#shop">PRODUCTOS<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/#promo">PROMOCIONES</a>
+        <a class="nav-link" (click)="collapsed();" href="/#promo">PROMOCIONES</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/#nosotros">NOSOTROS</a>
+        <a class="nav-link" (click)="collapsed();" href="/#nosotros">NOSOTROS</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/#contacto">CONTACTO</a>
+        <a class="nav-link" (click)="collapsed();" href="/#contacto">CONTACTO</a>
       </li>
       <li class="nav-item">
         <!-- Button trigger modal -->
@@ -47,14 +47,12 @@
                 <div class="tab-content" id="pills-tabContent">
                   <div class="tab-pane fade show active" id="pills-log" role="tabpanel" aria-labelledby="pills-log-tab">
                     <div class="log">
-                      <form action="/sesion" method="post">
-                        <p class="alert alert-danger">
-                        </p>
+                      <form>
                         <input type="text" name="email" value="" placeholder="Email">
                         <input type="password" name="password" value="" placeholder="Contraseña">
                         <button type="submit" class="btn"name="button">INGRESAR</button>
                       </form>
-                        <button (click)="login()" class="btn btn-primary">Ingresar con google</button>
+                      <button (click)="login()" class="btn btn-primary">Ingresar con google</button>
                     </div>
                   </div>
                   <div class="tab-pane fade" id="pills-reg" role="tabpanel" aria-labelledby="pills-reg-tab">
@@ -77,15 +75,15 @@
       </li>
       <li class="nav-item dropdown" *ngIf="appUser">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">
+          aria-expanded="false"(click)="collapsed();">
           {{ appUser.name }}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <!-- <a class="dropdown-item" routerLink='/profile'>PERFIL</a> -->
-          <a class="dropdown-item" routerLink='/buy'>MIS COMPRAS</a>
-          <a *ngIf="appUser.isAdmin" class="dropdown-item" routerLink="/admin/orders">VENTAS</a>
-          <a *ngIf="appUser.isAdmin" class="dropdown-item" routerLink="/admin/comments">COMENTARIOS</a>
-          <a *ngIf="appUser.isAdmin" class="dropdown-item" routerLink='/admin/products'>PRODUCTOS</a>
+          <a class="dropdown-item" (click)="collapsed();" routerLink='/buy'>MIS COMPRAS</a>
+          <a *ngIf="appUser.isAdmin" class="dropdown-item" (click)="collapsed();" routerLink="/admin/orders">VENTAS</a>
+          <a *ngIf="appUser.isAdmin" class="dropdown-item" (click)="collapsed();" routerLink="/admin/comments">COMENTARIOS</a>
+          <a *ngIf="appUser.isAdmin" class="dropdown-item" (click)="collapsed();" routerLink='/admin/products'>PRODUCTOS</a>
           <a class="dropdown-item" (click)="logout()" href="#">LOGOUT</a>
         </div>
       </li>
