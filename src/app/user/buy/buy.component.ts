@@ -15,10 +15,9 @@ export class BuyComponent{
   constructor(
     private authService: AuthService,
     private orderService: OrderService) {
-
       this.orders$ = authService.user$.pipe(switchMap(u => orderService.getOrdersByUser(u.uid)));
+      
       console.log(this.orders$);
-
     }
     c(o){
       console.log(o);

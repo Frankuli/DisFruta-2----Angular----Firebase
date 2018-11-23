@@ -1,6 +1,6 @@
-import { AngularFireDatabase } from '@angular/fire/database';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { OrderService } from 'src/app/services/order.service';
 
 @Component({
   selector: 'app-detail',
@@ -10,11 +10,13 @@ import { Component, OnInit } from '@angular/core';
 export class DetailComponent implements OnInit {
   order$;
 
-  constructor(private router: ActivatedRoute, private db: AngularFireDatabase ) { }
+  constructor(
+    private router: ActivatedRoute, 
+    private orderService: OrderService) { }
 
   ngOnInit() {
     let id = this.router.snapshot.paramMap.get('id');
-    this.order$ = this.db.object('/products/' + id).valueChanges();
+    this.order$ = this.orderService.get(id).valueChanges();
   }
   c(o){
     console.log(o);

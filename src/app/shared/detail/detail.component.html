@@ -7,7 +7,26 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of order$ | async ">
+    
+    <div *ngIf="order$ | async as order; else noOrder">
+      <div>
+        <h2>Datos de envio</h2>
+        <div>{{order.shipping.name}}</div>
+        <div>{{order.shipping.address}}</div>
+      </div>
+      <div *ngFor="let item of order.items"> 
+        <div><label for="">Name</label>{{item.product.name}}</div>
+        <div><label for="">Precio</label>{{item.product.price}}</div>
+        <div><label for="">Cantidad</label>{{item.quantity}}</div>
+        <div><label for="">Total</label>{{item.totalPrice}}</div>
+      </div>      
+    </div>
+    
+    <pre>
+      {{ order$ | async | json }}
+    </pre>
+
+    <!-- <tr *ngFor="let item of order$ | async ">
       <td>{{ item.shipping.name }}</td>
       <td class="">
         <div class="row no-gutters">
@@ -22,7 +41,7 @@
         </div>
       </td>
       <td class="text-center"><strong>$ </strong>{{ item.totalPrice }}</td>
-    </tr>
+    </tr> -->
   </tbody>
 </table>
 
