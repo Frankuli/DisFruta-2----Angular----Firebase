@@ -12,9 +12,6 @@ export class OrderComponent{
   constructor(private orderService: OrderService) {
     this.orders$ = orderService.getAll();
   }
-c(o){
-console.log(o);
-}
 
 }
 

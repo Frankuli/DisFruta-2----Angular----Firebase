@@ -1,8 +1,16 @@
 <img class="titulotienda" src="/assets/img/titulotienda.jpg" alt="">
 <img class="tomate" src="/assets/img/3.png" alt="">
+
 <div class="titulos">
   <h1>SHOP </h1>
 </div>
-<app-product></app-product>
+
+<label for="branch">Elegi tu sucursal Preferida</label>
+<select class="form-control" [(ngModel)]="branch" name="branch" id="branch" required>
+  <option *ngFor="let b of branch$ | async" [selected]="b.key">{{ b.name }}</option>
+</select>
+
+  <app-product></app-product>
+
 <button type="submit" class="btn" routerLink='/summary'>COMPRAR</button>
 <app-footer></app-footer>

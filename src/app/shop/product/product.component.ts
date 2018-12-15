@@ -1,3 +1,4 @@
+import { StockService } from './../../services/stock.service';
 import { ShoppingCart } from 'src/app/models/shopping-cart';
 import { ShoppingCartService } from './../../services/shopping-cart.service';
 import { Product } from './../../models/product';
@@ -18,15 +19,18 @@ export class ProductComponent implements OnInit, OnDestroy{
   category: string;
   cart: ShoppingCart;
   subscription;
+  stock$;
 
   constructor(
     private router: ActivatedRoute,
     private productService: ProductService,
-    private cartService: ShoppingCartService){}
+    private cartService: ShoppingCartService,
+    private stockService: StockService){
+      this.stock$ = stockService.getAll();
+    }
 
   removeFromCart(product: Product){
     this.cartService.removeFromCart(product);
-
   }
 
   addToCard(product: Product) {

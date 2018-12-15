@@ -6,7 +6,8 @@
         <img class="card-img-top" src="{{ p.image }}" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{ p.name }}</h5>
-          <p class="card-text">${{ p.price }} Kg</p>
+          <p class="card-text">${{ p.price }} x {{p.unit}}</p>
+          <small>Stock {{ p.quantity }} {{ p.unit }}</small>
         </div>
         <div class="card-footer">
           <button

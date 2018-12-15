@@ -1,3 +1,5 @@
+import { StockService } from './services/stock.service';
+import { BranchComponent } from './admin/branch/branch.component';
 import { DetailComponent } from './shared/detail/detail.component';
 import { CommentComponent } from './admin/comment/comment.component';
 import { LogComponent } from './shared/log/log.component';
@@ -61,7 +63,8 @@ import { OrderComponent } from './admin/order/order.component';
     LogComponent,
     OrderComponent,
     CommentComponent,
-    DetailComponent
+    DetailComponent,
+    BranchComponent
   ],
   imports: [
     BrowserModule,
@@ -90,6 +93,9 @@ import { OrderComponent } from './admin/order/order.component';
       { path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuard, AdminAuthGuard] },
       { path: 'admin/products/new', component: ProducFormComponent, canActivate: [AuthGuard, AdminAuthGuard] },
       { path: 'admin/products/:id', component: ProducFormComponent, canActivate: [AuthGuard, AdminAuthGuard] },
+
+      { path: 'admin/branch/new', component: BranchComponent, canActivate: [AuthGuard, AdminAuthGuard] },
+
     ]),
   ],
   providers: [
@@ -101,6 +107,7 @@ import { OrderComponent } from './admin/order/order.component';
     ProductService,
     ShoppingCartService,
     OrderService,
+    StockService
   ],
   bootstrap: [AppComponent],
 })
