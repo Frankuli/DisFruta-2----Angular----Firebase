@@ -6,6 +6,7 @@ import { ShoppingCart } from './../../models/shopping-cart';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { AppUser } from 'src/app/models/user';
 
 @Component({
   selector: 'app-send',
@@ -16,6 +17,7 @@ export class SendComponent implements OnInit, OnDestroy {
   shipping = {};
   cart: ShoppingCart;
   userId: string;
+  appUser: AppUser;
   cartSubscription: Subscription;
   userSubscription: Subscription;
 
@@ -37,6 +39,7 @@ export class SendComponent implements OnInit, OnDestroy {
   async ngOnInit(){
     let cart$ = await this.shoppingCartService.getCart();
     this.cartSubscription = cart$.subscribe(cart => this.cart = cart);
+    this.authService.appUser$.subscribe(appUser => this.appUser = appUser);
     this.userSubscription = this.authService.user$.subscribe(user => this.userId = user.uid);
   }
 
