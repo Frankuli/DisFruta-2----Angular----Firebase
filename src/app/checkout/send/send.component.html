@@ -3,40 +3,47 @@
 </div>
 <form #f="ngForm">
   <div class="form-group">
+
     <label for="">A Nombre de:</label>
-    <input #n="ngModel" name="name" [(ngModel)]="shipping.name" type="text" class="form-control" value="{{appUser.name}}" required>
+    <input #n="ngModel" name="name" [(ngModel)]="shipping.name" placeholder="Titular" type="text" class="form-control" required>
     <div class="alert alert-danger" *ngIf="n.touched && n.invalid">
       <div *ngIf="n.errors.required">Se requiere un Nombre</div>
     </div>
   </div>
 
-
-  <label>Envio / Retiro</label>
+  <label>Envio</label>
   <div class="ml-2">
     <label>
-      <input type="radio" name="color" value="azul">  A Domicilio
-    </label><br>
-    <div>
-    <div class="form-group">
+      <input type="radio" name="envio" value="domicilio" [(ngModel)]="shipping.send" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="checked" aria-controls="collapseExample">  A Domicilio
+    </label>
+    <div class="form-group ml-2 collapse" id="collapseExample">
+      <p>Recargo del 5%</p>
       <label for="">Direccion de Envio</label>
-      <input #a="ngModel" name="address" [(ngModel)]="shipping.address" type="text" class="form-control" placeholder="Direccion"
-        required>
+      <input #a="ngModel" name="address" [(ngModel)]="shipping.address" type="text" class="form-control" placeholder="Direccion" required>
       <div class="alert alert-danger" *ngIf="a.touched && a.invalid">
         <div *ngIf="a.errors.required">Se requiere una Direccion</div>
       </div>
     </div>
-  </div>
+    <br>
     <label>
-      <input type="radio" name="color" value="negro"> En Mostrador
+      <input type="radio" name="retiro" value="mostrador" [(ngModel)]="shipping.send" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> En Mostrador
     </label><br>
   </div>
 
-
-
-  <div class="form-group">
-    <label for=""></label>
-    
+  <label>Forma de pago</label>
+  <div class="ml-2">
+    <label>
+      <input type="radio" data-toggle="collapse" href="#collapseCard" role="button" aria-expanded="false" aria-controls="collapseCard"> Tarjeta
+    </label>
+    <div class="collapse" id="collapseCard">
+      <p>Recargo del 1%</p>
+      <select name="card" [(ngModel)]="shipping.card">
+        <option value="bancor">Bancor</option>
+      </select>
+    </div>
   </div>
+
+
 
   <button (click)="placeOrder()" class="btn">Enviar</button>
 </form>
