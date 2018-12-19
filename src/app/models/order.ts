@@ -3,19 +3,18 @@ import { ShoppingCart } from './shopping-cart';
 export class Order {
   datePlaced: number;
   items: any[];
-  status: string;
   recargoEnv: number;
   recargoPag: number;
-  cadete: string;
 
-  constructor(public userId: string, public shipping: any, shoppingCart: ShoppingCart ){
+
+  constructor(public userId: string, public envio: any, shoppingCart: ShoppingCart, public sucursal){
     this.datePlaced = new Date().getTime();
-    this.cadete = "";
-    this.status = "pendiente";
-    if (shipping.send=="domicilio"){
-      this.recargoEnv = 0.05;
+    if (envio.destino=="domicilio"){
+      this.recargoEnv = 5;
+    }else{
+      this.recargoEnv = 0;
     }
-    this.recargoPag = 0.01;
+    this.recargoPag = 1;
 
     this.items = shoppingCart.items.map(i => {
       return {

@@ -5,10 +5,6 @@
   <h1>SHOP </h1>
 </div>
 
-<label for="branch">Elegi tu sucursal Preferida</label>
-<select class="form-control" [(ngModel)]="branch" name="branch" id="branch" required>
-  <option *ngFor="let b of branch$ | async" [selected]="b.key">{{ b.name }}</option>
-</select>
 
   <app-product></app-product>
 

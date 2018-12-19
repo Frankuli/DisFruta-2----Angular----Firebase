@@ -75,3 +75,7 @@ form{
     background-color: #856404;
     border-color: #856404;
 }
+thead{
+  background: rgb(205,146,8);
+  color: #ffffff;
+}

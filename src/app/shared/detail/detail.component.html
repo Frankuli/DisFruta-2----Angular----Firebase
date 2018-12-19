@@ -1,48 +1,47 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th class="text-center">Cantidad</th>
-      <th class="text-center">Precio</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <div *ngIf="order$ | async as order; else noOrder">
-      <div>
-        <h2>Datos de envio</h2>
-        <div>{{order.shipping.name}}</div>
-        <div>{{order.shipping.address}}</div>
-      </div>
-      <div *ngFor="let item of order.items"> 
-        <div><label for="">Name</label>{{item.product.name}}</div>
-        <div><label for="">Precio</label>{{item.product.price}}</div>
-        <div><label for="">Cantidad</label>{{item.quantity}}</div>
-        <div><label for="">Total</label>{{item.totalPrice}}</div>
-      </div>      
+<div *ngIf="order$ | async as order; else noOrder">
+  <div>
+    <div class="titulos">
+      <h2>Datos de Envio</h2>
     </div>
-    
-    <pre>
-      {{ order$ | async | json }}
-    </pre>
+    <p><strong>Retirado por: </strong>{{order.shipping.name}}</p>
+    <p><strong>Direccion: </strong>{{order.shipping.address}}</p>
+    <p><strong>Estado: </strong>{{order.status}}</p>
+    <p><strong>{{order.send}}</strong></p>
 
-    <!-- <tr *ngFor="let item of order$ | async ">
-      <td>{{ item.shipping.name }}</td>
-      <td class="">
-        <div class="row no-gutters">
-          <div class="col-2 no-gutters">
-            <button (click)="removeFromCart(item)" class="btn btn-block bo">-</button>
-          </div>
-          <div class="col align-middle text-center">
-            {{ item.quantity }}</div>
-          <div class="col-2 no-gutters">
-            <button (click)="addToCard(item)" class="btn btn-block bo">+</button>
-          </div>
-        </div>
-      </td>
-      <td class="text-center"><strong>$ </strong>{{ item.totalPrice }}</td>
-    </tr> -->
-  </tbody>
-</table>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th class="text-center">Cantidad</th>
+        <th class="text-center">Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of order.items">
+        <td>{{ item.product.name }}</td>
+        <td class="text-center">{{ item.quantity }}</td>
+        <td class="text-center"><strong>$ </strong>{{ item.totalPrice }}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th>Recargo por tarjeta</th>
+        <th></th>
+        <th>{{order.recargoPag}}%</th>
+      </tr>
+      <tr>
+        <th>Recargo por Envio</th>
+        <th></th>
+        <th>{{order.recargoEnv}}%</th>
+      </tr>
+      <tr>
+        <th></th>
+        <th>Total</th>
+        <th>$ </th>
+      </tr>
+    </tfoot>
+  </table>
+</div>
 
-
+<pre> {{ order$ | async | json }} </pre>
