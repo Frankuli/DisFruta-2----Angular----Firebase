@@ -1,3 +1,13 @@
+@media (min-width: 768px){
+  .contenedor{
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  .shop{
+    text-align: center !important;
+    align-items: center !important;
+  }
+}
 .shop{
   color: rgb(205,146,8);
   text-align: left;

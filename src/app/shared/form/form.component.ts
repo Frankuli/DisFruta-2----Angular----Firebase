@@ -7,13 +7,22 @@ import { AngularFireDatabase } from '@angular/fire/database';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+  txt;
+  name;
+  title;
+  email;
 
   constructor(private db: AngularFireDatabase) { }
   save(msn){
     console.log(msn);
     this.db.list('/messages').push(msn);
+    this.txt = "";
+    this.name = "";
+    this.title = "";
+    this.email = "";
   }
   ngOnInit() {
+
   }
 
 }

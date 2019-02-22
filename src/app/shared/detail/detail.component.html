@@ -1,11 +1,12 @@
 <div *ngIf="order$ | async as order; else noOrder">
   <div>
     <div class="titulos">
-      <h2>Datos de Envio</h2>
+      <h2>DATOS DE ENVIO</h2>
     </div>
-    <p><strong>Retirado por: </strong>{{order.shipping.name}}</p>
-    <p><strong>Direccion: </strong>{{order.shipping.address}}</p>
-    <p><strong>Estado: </strong>{{order.status}}</p>
+    <p><strong>Retirado por: </strong>{{order.envio.nombre}}</p>
+    <p><strong>Destino: </strong>{{order.envio.destino}}</p>
+    <p *ngIf="order.envio.direccion"><strong>Direccion: </strong>{{order.envio.direccion}}</p>
+    <!-- <p><strong>Estado: </strong>{{order.status}}</p> -->
     <p><strong>{{order.send}}</strong></p>
 
   </div>
@@ -26,22 +27,27 @@
     </tbody>
     <tfoot>
       <tr>
+        <td>Sub Total</td>
+        <td></td>
+        <td>{{rec(order)}}</td>
+      </tr>
+      <tr>
         <th>Recargo por tarjeta</th>
-        <th></th>
         <th>{{order.recargoPag}}%</th>
+        <th><small *ngIf="order.recargoPag==1">({{pag(order)}})</small></th>
       </tr>
       <tr>
         <th>Recargo por Envio</th>
-        <th></th>
         <th>{{order.recargoEnv}}%</th>
+        <th> <small *ngIf="order.recargoEnv==5">({{env(order)}})</small></th>
       </tr>
       <tr>
         <th></th>
         <th>Total</th>
-        <th>$ </th>
+        <th>$ {{rec(order)+pag(order)+env(order)}} </th>
       </tr>
     </tfoot>
   </table>
 </div>
 
-<pre> {{ order$ | async | json }} </pre>
+<!-- <pre> {{ order$ | async | json }} </pre> -->
