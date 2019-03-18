@@ -23,13 +23,13 @@ export class DetailComponent implements OnInit {
 
   pag(venta){
     if(venta.recargoPag == 1){
-      return this.rec(venta)*0.1;
+      return Math.trunc( this.rec(venta)*0.1);
     }
     return 0;
   }
   env(venta){
     if (venta.recargoEnv == 5) {
-      return this.rec(venta) * 0.5;
+      return Math.trunc( this.rec(venta) * 0.5);
     }
     return 0;
   }

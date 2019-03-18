@@ -1,3 +1,4 @@
+import { UnitService } from './services/unit.service';
 import { StockService } from './services/stock.service';
 import { BranchComponent } from './admin/branch/branch.component';
 import { DetailComponent } from './shared/detail/detail.component';
@@ -107,7 +108,8 @@ import { OrderComponent } from './admin/order/order.component';
     ProductService,
     ShoppingCartService,
     OrderService,
-    StockService
+    StockService,
+    UnitService
   ],
   bootstrap: [AppComponent],
 })

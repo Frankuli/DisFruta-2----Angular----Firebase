@@ -1,3 +1,4 @@
+import { UnitService } from './../../services/unit.service';
 import { ProductService } from './../../services/product.service';
 import { CategoryService } from './../../services/category.service';
 import { Component, OnInit } from '@angular/core';
@@ -19,9 +20,12 @@ export class ProducFormComponent implements OnInit {
   category: string;
   image: string;
   id: string;
+  quantity: string;
+  unit: string;
   producto;
   downloadURL: Observable<string>;
   categories$;
+  unit$;
 
   constructor(
     private db: AngularFireDatabase,
@@ -29,9 +33,12 @@ export class ProducFormComponent implements OnInit {
     private storage: AngularFireStorage,
     private router: Router,
     private categoryService: CategoryService,
+    private unitService: UnitService,
     private productService: ProductService) {
 
     this.categories$ = categoryService.getAll();
+    this.unit$ = unitService.getAll();
+
   }
 
   save(product) {
@@ -64,6 +71,8 @@ export class ProducFormComponent implements OnInit {
           this.price = product.price;
           this.category = product.category;
           this.image = product.image;
+          this.quantity = product.quantity;
+          this.unit = product.unit;
           this.id = id;
         });
       }
